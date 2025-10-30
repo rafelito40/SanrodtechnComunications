@@ -1,200 +1,165 @@
-/* =========================================
-   RESET Y TIPOGRAFÍA GENERAL
-========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
+/* Fondo animado */
 body {
-    background: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(270deg, #0a2e5d, #006699, #00bcd4);
+  background-size: 600% 600%;
+  animation: fondoAnimado 12s ease infinite;
+  color: #222;
 }
 
-/* =========================================
-   CONTENEDOR GENERAL
-========================================= */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+@keyframes fondoAnimado {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
-/* =========================================
-   HEADER
-========================================= */
+/* ENCABEZADO */
 .header {
-    background: #004aad;
-    padding: 15px 0;
-    color: #fff;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
 }
 
 .logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .logo {
-    width: 75px;
-    margin-bottom: 5px;
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
 }
 
-.header-container h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
+.texto-logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
-.header-container h2 {
-    font-size: 1rem;
-    margin-top: 3px;
+.texto-logo p {
+  margin: 3px 0;
+  font-style: italic;
+  font-size: 0.9rem;
 }
 
-.header-container p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-/* NAV */
 .nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 30px;
-    transition: 0.3s;
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.nav a:hover {
-    color: #ffd700;
+.nav a:hover, .nav a.active {
+  color: #00bcd4;
 }
 
-/* =========================================
-   BIENVENIDA
-========================================= */
+/* MENSAJE DE BIENVENIDA */
 .bienvenida {
-    text-align: center;
-    padding: 30px 0;
+  text-align: center;
+  padding: 40px 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.bienvenida h2 {
-    color: #004aad;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-/* =========================================
-   SLIDER
-========================================= */
-/* SLIDER PRINCIPAL */
+/* SLIDER */
 .slider {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
 }
 
 .slider-container {
-    width: 80%;
-    height: 260px;
-    overflow: hidden;
-    position: relative;
-    border-radius: 14px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, .6);
-    background: #0f1c3b;
+  display: flex;
+  transition: transform 1s ease-in-out;
 }
 
 .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity .7s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  min-width: 100%;
+  position: relative;
 }
 
-.slide.active {
-    opacity: 1;
-}
-
-/* IMAGEN MÁS PEQUEÑA */
 .slide img {
-    width: 240px;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    filter: brightness(.92);
-    transition: transform .3s;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.slide img:hover {
-    transform: scale(1.06);
-    filter: brightness(1.1);
-}
-
-/* TEXTOS */
 .caption {
-    text-align: center;
-    color: #fff;
-    font-family: Arial, sans-serif;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
 }
 
-.caption h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+/* SECCIÓN DIVERTIDA */
+.diversion {
+  text-align: center;
+  color: white;
+  padding: 60px 20px;
 }
 
-.caption p {
-    font-size: .9rem;
-    opacity: .85;
+.diversion h2 {
+  font-size: 2rem;
 }
 
+.iconos {
+  font-size: 2rem;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  animation: flotar 4s ease-in-out infinite;
+}
 
-/* =========================================
-   FOOTER
-========================================= */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* CTA */
+.cta {
+  background-color: #0a2e5d;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.btn {
+  background: linear-gradient(45deg, #00bcd4, #006699);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00bcd4;
+}
+
+/* FOOTER */
 .footer {
-    background: #004aad;
-    padding: 25px 0;
-    text-align: center;
-    color: #fff;
-    margin-top: 40px;
-    font-size: 0.9rem;
-}
-
-.footer p {
-    margin: 5px 0;
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-@media (max-width: 768px) {
-    .header-container {
-        text-align: center;
-        flex-direction: column;
-    }
-
-    .nav {
-        margin-top: 15px;
-    }
-
-    .slide img {
-        height: 220px;
-    }
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
 }
