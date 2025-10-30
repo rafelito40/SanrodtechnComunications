@@ -74,11 +74,16 @@ body {
   font-weight: bold;
 }
 
-/* SLIDER */
+/* SLIDER — versión más pequeña y centrada */
 .slider {
   position: relative;
   overflow: hidden;
-  height: 400px;
+  height: 280px; /* 🔹 antes era 400px */
+  width: 85%;
+  margin: 40px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.05);
 }
 
 .slider-container {
@@ -93,19 +98,21 @@ body {
 
 .slide img {
   width: 100%;
-  height: 400px;
+  height: 280px; /* 🔹 más bajo */
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
+/* Opcional: mejora del texto dentro del slider */
 .caption {
   position: absolute;
-  bottom: 20px;
-  left: 30px;
-  background: rgba(0, 0, 0, 0.5);
+  bottom: 10px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 15px;
-  border-radius: 5px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
 /* SECCIÓN DIVERTIDA */
