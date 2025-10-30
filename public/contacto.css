@@ -1,0 +1,192 @@
+/* ====== ESTILOS GENERALES ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* Contenedor global */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ====== HEADER ====== */
+.header {
+    background: linear-gradient(45deg, #001f3f, #003f7f, #0099ff);
+    padding: 25px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #00d8ff;
+    text-shadow: 0 0 6px #00ffff;
+}
+
+.nav .active {
+    border-bottom: 2px solid #00d8ff;
+}
+
+/* ====== MAIN ====== */
+.main {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: 40px;
+}
+
+/* ====== INFO DE CONTACTO ====== */
+.contact-info {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeUp 0.6s ease;
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #003f7f;
+}
+
+.contact-info p {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ====== FORMULARIO ====== */
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeUp 0.8s ease;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #003f7f;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,0.3);
+}
+
+/* Botón */
+button {
+    width: 100%;
+    background: linear-gradient(45deg, #003f7f,#006eff, #00bfff);
+    border: none;
+    padding: 15px 0;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,180,255,0.7);
+}
+
+/* ====== MAPA ====== */
+.mapa {
+    grid-column: 1 / -1;
+    text-align: center;
+    animation: fadeUp 1s ease;
+}
+
+.mapa h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #003f7f;
+}
+
+iframe {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ====== FOOTER ====== */
+.footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    background: #001f3f;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ====== ANIMACIÓN ====== */
+@keyframes fadeUp {
+    0% {opacity: 0; transform: translateY(35px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+/* ====== RESPONSIVE ====== */
+@media(max-width: 600px){
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav a {
+        margin: 10px;
+        display: inline-block;
+    }
+}

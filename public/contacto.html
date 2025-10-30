@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto - Sanrodtechn Communications</title>
+    <link rel="stylesheet" href="contacto.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <h1>Contacto</h1>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html" class="active">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="contact-info">
+            <h2>Contáctanos</h2>
+            <p>Teléfono 1: <a href="tel:+18496232138">849-623-2138</a></p>
+            <p>Teléfono 2: <a href="tel:+18298701523">829-870-1523</a></p>
+            <p>Email: <a href="mailto:info@sanrodtechn.com">info@sanrodtechn.com</a></p>
+            <p>Dirección: Calle Principal, Palmar Abajo, Villa González, Santiago, República Dominicana</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Envíanos un mensaje</h2>
+            <form action="#" method="post" id="form-contacto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required />
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="849-000-0000" />
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section class="mapa">
+            <h2>Nuestra Ubicación</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.169555832711!2d-70.82624438501957!3d19.350728686819096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea9bfcf829d1e93%3A0xeaa6a70a9f5293d6!2sPalmar%20Abajo%2C%20Villa%20Gonz%C3%A1lez%2C%20Santiago!5e0!3m2!1ses-419!2sdo!4v1699350000000!5m2!1ses-419!2sdo"
+                width="100%"
+                height="350"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de ubicación Sanrodtechn"
+            ></iframe>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sanrodtechn Communications. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

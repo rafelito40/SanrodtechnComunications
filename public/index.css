@@ -1,0 +1,200 @@
+/* =========================================
+   RESET Y TIPOGRAFÍA GENERAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CONTENEDOR GENERAL
+========================================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+    background: #004aad;
+    padding: 15px 0;
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 75px;
+    margin-bottom: 5px;
+}
+
+.header-container h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.header-container h2 {
+    font-size: 1rem;
+    margin-top: 3px;
+}
+
+.header-container p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* NAV */
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 30px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #ffd700;
+}
+
+/* =========================================
+   BIENVENIDA
+========================================= */
+.bienvenida {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.bienvenida h2 {
+    color: #004aad;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* =========================================
+   SLIDER
+========================================= */
+/* SLIDER PRINCIPAL */
+.slider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slider-container {
+    width: 80%;
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 14px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .6);
+    background: #0f1c3b;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .7s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* IMAGEN MÁS PEQUEÑA */
+.slide img {
+    width: 240px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    filter: brightness(.92);
+    transition: transform .3s;
+}
+
+.slide img:hover {
+    transform: scale(1.06);
+    filter: brightness(1.1);
+}
+
+/* TEXTOS */
+.caption {
+    text-align: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.caption h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.caption p {
+    font-size: .9rem;
+    opacity: .85;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+.footer {
+    background: #004aad;
+    padding: 25px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    .header-container {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .nav {
+        margin-top: 15px;
+    }
+
+    .slide img {
+        height: 220px;
+    }
+}

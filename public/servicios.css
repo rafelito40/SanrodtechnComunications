@@ -1,0 +1,176 @@
+/* ==============================
+   Reset básico y tipografía
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==============================
+   Header
+============================== */
+.header {
+    background-color: #004aad; /* mismo azul que catálogo */
+    color: #fff;
+    padding: 15px 0;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #ffd700; /* dorado para destacar */
+}
+
+/* ==============================
+   Sección Nosotros
+============================== */
+.nosotros {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.nosotros .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nosotros h2 {
+    font-size: 2rem;
+    color: #004aad;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* ==============================
+   Servicios
+============================== */
+.servicios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.servicio {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    flex: 1 1 calc(33.333% - 20px);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.servicio .icono {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.servicio h4 {
+    color: #004aad;
+    margin-bottom: 10px;
+}
+
+.servicio p {
+    font-size: 1rem;
+}
+
+/* ==============================
+   Misión
+============================== */
+.mision {
+    margin-top: 50px;
+    background-color: #e6f0ff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.mision h3 {
+    color: #004aad;
+    margin-bottom: 15px;
+}
+
+/* ==============================
+   Footer
+============================== */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #004aad;
+    color: #fff;
+    margin-top: 50px;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 900px) {
+    .servicio {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav {
+        margin-top: 15px;
+    }
+
+    .servicio {
+        flex: 1 1 100%;
+    }
+}
