@@ -5,6 +5,50 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+/* --- LOGO --- */
+.logo {
+  height: 60px;            /* Tamaño del logo */
+  width: auto;             /* Mantiene proporciones */
+  object-fit: contain;     /* Evita deformación */
+  margin-right: 15px;      /* Espacio entre el logo y el título */
+  vertical-align: middle;  /* Alinea con el texto */
+  transition: transform 0.3s ease; /* Animación suave */
+}
+
+.logo:hover {
+  transform: scale(1.05);  /* Efecto al pasar el mouse */
+}
+
+/* --- CABECERA --- */
+.header {
+  background-color: #0a2e5d;     /* Azul corporativo (puedes cambiarlo) */
+  color: white;
+  padding: 15px 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #00bcd4; /* Color de acento */
+}
 
 body {
     background: #f5f7fa;
