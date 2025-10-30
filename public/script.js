@@ -1,14 +1,26 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
 
-function showSlides() {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add('active');
+let i = 0;
+const texto = document.getElementById("mensaje-bienvenida");
+
+if (texto) {
+  texto.textContent = mensajes[0];
+  setInterval(() => {
+    i = (i + 1) % mensajes.length;
+    texto.textContent = mensajes[i];
+  }, 2500);
 }
 
-// Inicial
-slides[0].classList.add('active');
+// Slider automático
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
 
-// Cambia cada 4 segundos
-setInterval(showSlides, 4000);
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+  });
+}
+
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 4000);
