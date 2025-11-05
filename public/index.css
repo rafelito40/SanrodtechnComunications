@@ -1,0 +1,322 @@
+/* 🎨 RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top right, #002b55, #001428 70%);
+  color: #0a2e5d;
+  overflow-x: hidden;
+}
+
+/* ✨ ANIMACIÓN DE FONDO CON BRILLO SUTIL */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #00bcd455 0%, transparent 70%) no-repeat;
+  filter: blur(100px);
+  z-index: -1;
+  animation: backgroundGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundGlow {
+  0% { opacity: 0.5; transform: scale(1);}
+  100% { opacity: 1; transform: scale(1.05);}
+}
+
+/* 🌐 CONTENEDOR GLOBAL */
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+/* 🔹 ENCABEZADO — efecto glass */
+.header {
+  background: #004aad;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.4s;
+}
+
+.header:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 🌀 LOGO Y TEXTO */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,188,212,0.5);
+  transition: transform 0.4s ease;
+}
+
+.logo:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.texto-logo h1 {
+  font-size: 1.8rem;
+  color: #00bcd4;
+  text-shadow: 0 0 8px #00bcd4aa;
+}
+
+.texto-logo h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #89c9ff;
+}
+
+.texto-logo p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #ccc;
+}
+
+/* 🔗 NAVBAR */
+.nav a {
+  color: #e8f1ff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #00bcd4;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a.active::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: #00bcd4;
+}
+
+/* 💬 MENSAJE DE BIENVENIDA */
+.bienvenida {
+  text-align: center;
+  padding: 60px 15px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 20px #00bcd4aa;
+  animation: aparecer 2s ease forwards;
+}
+
+@keyframes aparecer {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* 🖼️ SLIDER ACTUALIZADO (compatible con .slider-container) */
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  width: 85%;
+  margin: 60px auto;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* contenedor que agrupa las slides */
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* cada slide */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* imagen más pequeña y centrada */
+.slide img {
+  width: 55%; /* 🔹 tamaño reducido */
+  height: auto;
+  max-height: 75%;
+  object-fit: contain;
+  border-radius: 20px;
+  opacity: 0.95;
+  box-shadow: 0 0 30px rgba(0,188,212,0.4);
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* texto descriptivo */
+.caption {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(0,188,212,0.4);
+  text-align: center;
+}
+
+.caption h3 {
+  color: #00bcd4;
+  margin-bottom: 5px;
+}
+
+
+
+/* 🎉 SECCIÓN DIVERTIDA */
+.diversion {
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+}
+
+.diversion h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 12px #00bcd4;
+}
+
+.diversion p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #cfe8ff;
+}
+
+.iconos {
+  margin-top: 25px;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.iconos span {
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.iconos span:nth-child(even) {
+  animation-delay: 1s;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-12px);}
+}
+
+/* 🚀 CTA */
+.cta {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(120deg, #006699, #00bcd4);
+  border-top-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  box-shadow: 0 0 40px rgba(0,188,212,0.4);
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.cta p {
+  color: #e0f7fa;
+  margin: 15px 0 25px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #006699;
+  padding: 14px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #00bcd4;
+}
+
+.btn:hover {
+  background: #00bcd4;
+  color: #fff;
+  box-shadow: 0 0 25px #00bcd4aa;
+  transform: scale(1.08);
+}
+
+/* ⚙️ FOOTER */
+.footer {
+  background: rgba(0,0,0,0.9);
+  color: #aaa;
+  text-align: center;
+  padding: 40px 15px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+.footer p:first-child {
+  color: #00bcd4;
+  font-weight: bold;
+}
+

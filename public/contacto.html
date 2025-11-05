@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto - Sanrodtechn Communications</title>
+    <link rel="stylesheet" href="contacto.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <!-- 🔹 Aquí movemos el logo dentro del cuadro azul -->
+             <img src="/images/productos/logo.png" alt="Sanrodtechn Logo" class="logo" />
+            <div class="logo-titulo">
+               
+                <h1>Contacto</h1>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html" class="active">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="contact-info">
+            <h2>Contáctanos</h2>
+            <p>Teléfono 1: <a href="tel:+18496232138">849-623-2138</a></p>
+            <p>Teléfono 2: <a href="tel:+18298701523">829-870-1523</a></p>
+            <p>Email: <a href="sanrodtechcomunications@gmail.com">sanrodtechcomunications@gmail.com</a></p>
+            <p>Dirección: Calle Principal, Palmar Abajo, Villa González, Santiago, República Dominicana</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Envíanos un mensaje</h2>
+            <form action="#" method="post" id="form-contacto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required />
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="849-000-0000" />
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <!-- ====== SECCIÓN DE IMAGEN DEL LOCAL ====== -->
+<section class="local-section">
+  <h2>Conoce Nuestro Local</h2>
+  <div class="local-image-container">
+    <img src="local.jpg" alt="Fachada de Sanrodtechn Communications" class="local-image" />
+  </div>
+</section>
+
+<section class="mapa">
+    <h2>Vista Aérea Inclinada (45°)</h2>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d302.92969088670536!2d-70.77183!3d19.54545!3m2!1i1024!2i768!4f45!3m3!1m2!1s0x8eb1c72f5d66d4d3%3A0x75d7aa0704b1683!2sSANRODTECHN%20COMUNICATIONS!5e1!3m2!1ses-419!2sdo!5e1!3m2!1i1024!2i768!4f45!5m2!1ses-419!2sdo&layer=c"
+        width="100%"
+        height="380"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+</section>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sanrodtechn Communications. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- 🔹 BOTÓN FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/18496232138?text=¡Hola!%20Quisiera%20más%20información%20sobre%20sus%20servicios." 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chatea con nosotros en WhatsApp">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const elements = document.querySelectorAll(".local-section, .mapa, .contact-info, .contact-form");
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
