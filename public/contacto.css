@@ -229,7 +229,7 @@ button:hover {
 /* ✍️ Animación de escritura */
 @keyframes typing {
   from { width: 0; }
-  to { width: 710px; } /* Ajusta el ancho según la longitud del texto */
+  to { width: 760px; } /* Ajusta el ancho según la longitud del texto */
 }
 
 /* ===== MAPA ===== */
