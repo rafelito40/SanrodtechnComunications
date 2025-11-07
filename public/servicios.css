@@ -1,176 +1,286 @@
-/* ==============================
-   Reset básico y tipografía
-============================== */
+/* ==========================
+   RESET Y BASE
+========================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+  background: #f4f7fb;
+  color: #333;
+  overflow-x: hidden;
 }
 
-/* ==============================
-   Header
-============================== */
+/* ==========================
+   HEADER
+========================== */
 .header {
-    background-color: #004aad; /* mismo azul que catálogo */
-    color: #fff;
-    padding: 15px 0;
+  background: linear-gradient(90deg, #004aad, #0078ff);
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .header-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-    width: 60px;
-    height: auto;
+  width: 65px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .header h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 .nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .nav a:hover,
 .nav a.active {
-    color: #ffd700; /* dorado para destacar */
+  color: #ffd700;
 }
 
-/* ==============================
-   Sección Nosotros
-============================== */
+/* ==========================
+   SLIDER
+========================== */
+/* ==========================
+   SLIDER AJUSTADO
+========================== */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* 🔧 Imagen ajustada dentro del slider */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔹 Mantiene la imagen completa visible sin recortes */
+  transform: scale(0.9); /* 🔹 Imagen más pequeña dentro del contenedor */
+  filter: brightness(85%);
+  transition: transform 1.5s ease-in-out;
+}
+
+/* 🔥 Efecto animado al activarse (ligero zoom pero sin salirse del marco) */
+.slide.active img {
+  transform: scale(0.95); /* 🔹 Pequeño zoom dentro del marco */
+}
+
+
+.caption {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  animation: fadeUp 1s ease forwards;
+}
+
+.caption h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.caption p {
+  font-size: 1rem;
+}
+
+/* Controles */
+.controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.controls span {
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+}
+
+.controls span:hover {
+  background: rgba(255, 215, 0, 0.7);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translate(-50%, 40px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ==========================
+   SECCIÓN NOSOTROS
+========================== */
 .nosotros {
-    padding: 50px 0;
-    background-color: #ffffff;
+  background: linear-gradient(180deg, #f7f8fc 0%, #ffffff 100%);
+  padding: 60px 20px;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  overflow: hidden;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .nosotros .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 1.5s ease forwards;
 }
 
 .nosotros h2 {
-    font-size: 2rem;
-    color: #004aad;
-    margin-bottom: 20px;
+  font-size: 2.2rem;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  letter-spacing: 1px;
+  animation: fadeInDown 1.3s ease;
 }
 
-.intro {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+.nosotros h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0078ff;
+  margin: 10px auto;
+  border-radius: 3px;
 }
 
-/* ==============================
-   Servicios
-============================== */
-.servicios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+.nosotros p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #444;
 }
 
-.servicio {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    flex: 1 1 calc(33.333% - 20px);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+.nosotros strong {
+  color: #0078ff;
 }
 
-.servicio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.nosotros h3 {
+  font-size: 1.6rem;
+  color: #0d47a1;
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeInUp 1.3s ease;
 }
 
-.servicio .icono {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+/* ==========================
+   ANIMACIONES
+========================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.servicio h4 {
-    color: #004aad;
-    margin-bottom: 10px;
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-.servicio p {
-    font-size: 1rem;
+@keyframes fadeInDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* ==============================
-   Misión
-============================== */
-.mision {
-    margin-top: 50px;
-    background-color: #e6f0ff;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-.mision h3 {
-    color: #004aad;
-    margin-bottom: 15px;
-}
-
-/* ==============================
-   Footer
-============================== */
+/* ==========================
+   FOOTER
+========================== */
 footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #004aad;
-    color: #fff;
-    margin-top: 50px;
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+  margin-top: 40px;
 }
 
-/* ==============================
-   Responsive
-============================== */
-@media (max-width: 900px) {
-    .servicio {
-        flex: 1 1 calc(50% - 20px);
-    }
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .caption h2 {
+    font-size: 1.3rem;
+  }
+
+  .slider {
+    height: 280px;
+  }
+
+  .nav a {
+    margin: 10px;
+  }
 }
 
-@media (max-width: 600px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav {
-        margin-top: 15px;
-    }
-
-    .servicio {
-        flex: 1 1 100%;
-    }
-}
