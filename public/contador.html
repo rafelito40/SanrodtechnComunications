@@ -51,12 +51,15 @@
   </div>
 
   <script>
-    // Contador de visitas usando CountAPI (funciona en Vercel y GitHub Pages)
-    const namespace = 'sanrodtechn_comunicaciones'; // sin puntos ni https
-    const key = 'contador_visitas';
+    // Usa CountAPI - no necesita servidor
+    const namespace = 'sanrodtechn_communications'; // sin espacios ni caracteres especiales
+    const key = 'contador_visitas_total';
 
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-      .then(response => response.json())
+    fetch(`https://api.countapi.xyz/update/${namespace}/${key}/?amount=1`)
+      .then(response => {
+        if (!response.ok) throw new Error(`Error HTTP ${response.status}`);
+        return response.json();
+      })
       .then(data => {
         document.getElementById('visitas').textContent = data.value;
       })
