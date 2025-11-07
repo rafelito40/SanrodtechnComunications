@@ -12,7 +12,6 @@
       text-align: center;
       padding-top: 120px;
     }
-
     .contador {
       background: rgba(255,255,255,0.1);
       display: inline-block;
@@ -21,18 +20,15 @@
       box-shadow: 0 6px 25px rgba(0,0,0,0.3);
       animation: fadeIn 1.5s ease-out;
     }
-
     h1 { margin-bottom: 15px; }
     #visitas {
       font-size: 3rem;
       animation: pop 1.5s infinite alternate;
     }
-
     @keyframes pop {
       from { transform: scale(1); }
       to { transform: scale(1.1); }
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
@@ -46,18 +42,16 @@
   </div>
 
   <script>
-    // Usa CountAPI (servicio gratuito sin registro)
-    const namespace = 'sanrodtechn-comunications'; // puedes cambiarlo por el nombre de tu sitio
-    const key = 'contador_general';
-
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-      .then(response => response.json())
+    fetch('/api/visitas')
+      .then(res => res.json())
       .then(data => {
-        document.getElementById('visitas').textContent = data.value;
+        document.getElementById('visitas').textContent = data.visitas;
       })
-      .catch(() => {
+      .catch(err => {
+        console.error('Error al obtener visitas:', err);
         document.getElementById('visitas').textContent = 'Error 😢';
       });
   </script>
 </body>
 </html>
+
