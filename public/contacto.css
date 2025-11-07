@@ -229,7 +229,11 @@ button:hover {
 /* ✍️ Animación de escritura */
 @keyframes typing {
   from { width: 0; }
+
   to { width: 760px; } /* Ajusta el ancho según la longitud del texto */
+
+  to { width: 690px; } /* Ajusta el ancho según la longitud del texto */
+
 }
 
 /* ===== MAPA ===== */
@@ -274,8 +278,10 @@ button:hover {
 .whatsapp-float img {
   width: 35px;
   height: 35px;
+
 }
 
+.whatsapp-float img {
   opacity: 1;
   transform: translateY(0);
 }

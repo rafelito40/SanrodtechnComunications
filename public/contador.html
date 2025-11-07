@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de Visitas</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #004aad, #00b4ff);
+      color: white;
+      text-align: center;
+      padding-top: 120px;
+    }
+
+    .contador {
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    h1 { margin-bottom: 15px; }
+    #visitas {
+      font-size: 3rem;
+      animation: pop 1.5s infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="contador">
+    <h1>👥 Visitas a la página</h1>
+    <div id="visitas">Cargando...</div>
+  </div>
+
+  <script>
+    // Usa CountAPI (servicio gratuito sin registro)
+    const namespace = 'sanrodtechn-comunications'; // puedes cambiarlo por el nombre de tu sitio
+    const key = 'contador_general';
+
+    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('visitas').textContent = data.value;
+      })
+      .catch(() => {
+        document.getElementById('visitas').textContent = 'Error 😢';
+      });
+  </script>
+</body>
+</html>
