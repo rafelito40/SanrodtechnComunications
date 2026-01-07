@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,98 +19,118 @@
         <div class="texto-logo">
           <h1>Sanrodtechn Communications</h1>
           <h2>RNC: 133078961</h2>
-          <p>Brindando Servicio de Tecnología a tu Hogar o Empresa.</p>
+          <p>Brindando Servicio de Tecnología a tu Hogar y Negocio.</p>
         </div>
       </div>
       <nav class="nav">
-        <a href="index.html" class="active">Inicio</a>
-        <a href="catalogo.html">Catálogo</a>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html" class="active">Catálogo</a>
         <a href="servicios.html">Servicios</a>
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
-   </header>
+  </header>
        <section class="promo-banner">
   <div class="promo-content">
     <h2>¡Ofertas Exclusivas de Temporada!</h2>
     <p>Descubre nuestros mejores productos con descuentos especiales por tiempo limitado. ¡No te lo pierdas!</p>
-    <a href="exclusivo.html" class="promo-btn">Haz Clic para ver productos exclusivos</a>
+    <a href="#catalogo" class="promo-btn">Ver Catálogo</a>
   </div>
 </section>
  <main>
     
+  <div class="filters">
+    <input type="text" id="search" placeholder="Buscar productos...">
+    <select id="category">
+      <option value="">Todas las categorías</option>
+      <option value="impresora">Impresoras</option>
+      <option value="telefono">Teléfonos</option>
+      <option value="computadora">Computadoras</option>
+      <option value="tv">TV</option>
+      <option value="bocinas">Bocinas</option>
+    </select>
+    <select id="price-filter">
+      <option value="">Todos los precios</option>
+      <option value="low">Menos de RD$ 20,000</option>
+      <option value="mid">RD$ 20,000 - RD$ 40,000</option>
+      <option value="high">Más de RD$ 40,000</option>
+    </select>
+  </div>
+
   <div class="product-grid">
-      <!-- Ejemplo: cada producto con botón Ver. Puedes añadir data-desc o dejar el <p> -->
+    <!-- Puedes duplicar este bloque para más productos -->
       <div class="product-card">
-        <img src="images/productos/epsonl3250.png" alt="IMPRESORA EPSON L3250">
-        <h3>IMPRESORA EPSON L3250</h3>
-        <p class="card-desc">ECOTANK P/S/C/USB/WIRELESS (C11CJ67301).</p>
-        <button class="btn-ver"
-                data-img="images/productos/epsonl3250.png"
-                data-title="IMPRESORA EPSON L3250"
-                data-desc="Impresora ECOTANK multifuncional, conexión USB/WIFI.">
-          Ver
-        </button>
-      </div>
-
-
+        <img src="images/productos/epsonl3250.png" alt="Producto 1">
+        <h3>IMPRESORA (MU) EPSON L3250 </h3>
+        <p>ECOTANK P/S/C/USB/WIRELESS (C11CJ67301).</p>
+        <p class="price">RD$ 25,000</p>
+        <div class="reviews">★★★★★ (10 reseñas)</div>
+        <button class="add-to-cart" data-product="IMPRESORA EPSON L3250" data-price="25000">Agregar al Carrito</button>
+    </div>
      <div class="product-card">
         <img src="images/productos/epsonl5590.jfif" alt="Producto 1">
         <h3>IMPRESORA (MU) EPSON L5590</h3>
         <p>ECOTANK P/S/C/F USB/WIRELESS/ETHERNET (C11CK57301)</p>
-        <button class="btn-ver">Ver</button>
-
+        <p class="price">RD$ 30,000</p>
+        <button class="add-to-cart" data-product="IMPRESORA EPSON L5590" data-price="30000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/telefono.jfif" alt="Producto 1">
         <h3>TELÉFONO YEALINK IP PHONE 2-SIP/2-LINE</h3>
         <p>GIGABIT POE (SIP-T31G)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 15,000</p>
+        <button class="add-to-cart" data-product="TELÉFONO YEALINK IP PHONE" data-price="15000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/bulto.jfif" alt="Producto 1">
         <h3>CoBULTO KLIPX 15.6" BRIEFCASE CLASSIC LITEre i7 Dell </h3>
         <p>BLACK (KNC-040)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 5,000</p>
+        <button class="add-to-cart" data-product="CoBULTO KLIPX BRIEFCASE" data-price="5000">Agregar al Carrito</button>
     </div>
 
     <div class="product-card">
         <img src="images/productos/producto1.jpg" alt="Producto 1">
         <h3>Core i7 Dell </h3>
         <p>16 gb ram .</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 50,000</p>
+        <button class="add-to-cart" data-product="Core i7 Dell" data-price="50000">Agregar al Carrito</button>
     </div>
     <div class="product-card">
         <img src="images/productos/producto2.jpg" alt="Producto 2">
         <h3>Computadoras All in One</h3>
         <p>Switches azules, retroiluminado.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 45,000</p>
+        <button class="add-to-cart" data-product="Computadoras All in One" data-price="45000">Agregar al Carrito</button>
     </div>
     <div class="product-card">
         <img src="images/productos/producto3.jpg" alt="Producto 3">
         <h3>IMPRESORA CANON MAXIFY GX5010 SISTEMA TINTA</h3>
         <p>Sistema Ajustado.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 28,000</p>
+        <button class="add-to-cart" data-product="IMPRESORA CANON MAXIFY GX5010" data-price="28000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/producto4.jpg" alt="Producto 3">
         <h3>IMPRESORA EPSON ECOTANK L6490 MULTIFUNCIONAL</h3>
         <p>impresiones rápidas: velocidad de impresión rápida de 17 ppm†.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 35,000</p>
+        <button class="add-to-cart" data-product="IMPRESORA EPSON ECOTANK L6490" data-price="35000">Agregar al Carrito</button>
     </div>
 
      <div class="product-card">
         <img src="images/productos/producto5.jpg" alt="Producto 3">
         <h3>TV LED 32 IHOME SMART GOOGLE TV IHOME32N2</h3>
         <p>Pantalla: 32 in, LED Smart TV</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 20,000</p>
+        <button class="add-to-cart" data-product="TV LED 32 IHOME SMART" data-price="20000">Agregar al Carrito</button>
     </div>
 
      <div class="product-card">
         <img src="images/productos/producto6.jpg" alt="Producto 3">
         <h4>AUDIFONO/MICROFONO ARGOM ULTIMATE SOUND BT LIVE</h4>
         <p>ARG-HS-2553WT WHITE.</p>
-       <button class="btn-ver">Ver</button>
+       
     </div>
 
 
@@ -117,208 +138,222 @@
         <img src="images/productos/producto7.jpg" alt="Producto 3">
         <h4>AUDIFONO/MICROFONO JBL JUNIOR 310 RED KIDS</h4>
         <p>Sonido estéreo, micrófono integrado.</p>
-        <button class="btn-ver">Ver</button>
+        
     </div>
 
      <div class="product-card">
         <img src="images/productos/producto8.jpg" alt="Producto 3">
         <h4>LAN REPEATER TP-LINK WA850RE</h4>
         <p>Range Extender mode boosts wireless.</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 8,000</p>
+        <button class="add-to-cart" data-product="LAN REPEATER TP-LINK WA850RE" data-price="8000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0178.jpg" alt="Producto 3">
         <h3>BOCINAS 2.1 LOGITECH Z407 BLUETOOTH</h3>
         <p>Bluetooth: 5.0.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 12,000</p>
+        <button class="add-to-cart" data-product="BOCINAS LOGITECH Z407" data-price="12000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0231.jpg" alt="Producto 3">
         <h3>BOCINAS 2.1 LOGITECH Z625 THX OPTICAL</h3>
         <p>Total de vatios reales (RMS): 400 vatios de potencia de pico/200 vatios RMS</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 15,000</p>
+        <button class="add-to-cart" data-product="BOCINAS LOGITECH Z625" data-price="15000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0161.jpg" alt="Producto 3">
         <h3>BOCINAS 2.1 MYO HT45 BUETOOH SUBWOOFER</h3>
         <p>Sonido estéreo</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 10,000</p>
+        <button class="add-to-cart" data-product="BOCINAS MYO HT45" data-price="10000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0356.jpg" alt="Producto 3">
         <h3>BOCINAS 2.1 XTECH AUGURY XTS-420 10W</h3>
         <p>Sonido estéreo</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 9,000</p>
+        <button class="add-to-cart" data-product="BOCINAS XTECH AUGURY" data-price="9000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-JB1505.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE JBL FLIP6 BLUETOOTH BLUE JBLFLIP6BLUAM</h3>
         <p>JBL FLIP6BLUAM.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 18,000</p>
+        <button class="add-to-cart" data-product="BOCINAS JBL FLIP6 BLUE" data-price="18000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-JB06.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE JBL FLIP6 BLUETOOTH RED</h3>
         <p>Sonido estéreo JBLFLIP6REDAM.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 18,000</p>
+        <button class="add-to-cart" data-product="BOCINAS JBL FLIP6 RED" data-price="18000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0220.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE ARGOM BAZOOKABEATS ARG-SP-3100RD</h3>
         <p>Charger Voltage: DC5V/1A.</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 7,000</p>
+        <button class="add-to-cart" data-product="BOCINAS ARGOM BAZOOKABEATS" data-price="7000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0372.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO CANNON SP9352BK</h3>
         <p>Bluetooth© 5.1 (EDR) + True Wireless Stereo (TWS).</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 11,000</p>
+        <button class="add-to-cart" data-product="BOCINAS UNNO CANNON" data-price="11000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0028.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE JBL FLIP6 BLUETOOTH BLACK</h3>
         <p>El JBL Flip 6 es resistente al polvo y al agua conforme a la norma IP67.</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 18,000</p>
+        <button class="add-to-cart" data-product="BOCINAS JBL FLIP6 BLACK" data-price="18000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0121.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE ARGOM BAZOOKABEATS ARG-SP-3100BL</h3>
         <p>Profile Support: A2DP & AVRCP.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 7,000</p>
+        <button class="add-to-cart" data-product="BOCINAS ARGOM BAZOOKABEATS BL" data-price="7000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0202.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO SOUNDBLAST 30 SP9368BK</h3>
         <p>Potencia de salida (W): 30 (RMS).</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 6,000</p>
+        <button class="add-to-cart" data-product="BOCINAS UNNO SOUNDBLAST" data-price="6000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/BOCI-0014.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
         <p>Potencia de salida de 5W.</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 5,000</p>
+        <button class="add-to-cart" data-product="BOCINAS UNNO PULSE" data-price="5000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/ups.jfif" alt="Producto 3">
         <h3>UPS FORZA NT SERIES TOWER</h3>
         <p>1000VA/500W/120V (NT-1011D)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 25,000</p>
+        <button class="add-to-cart" data-product="UPS FORZA NT SERIES" data-price="25000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/calculadora.jfif" alt="Producto 3">
         <h3>CALCULADORA SHARP DE MESA 12 DÍGITOS</h3>
         <p>WHITE (EL-1801V)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 2,000</p>
+        <button class="add-to-cart" data-product="CALCULADORA SHARP" data-price="2000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/rollo.jfif" alt="Producto 3">
         <h3>ROLLO DE PAPEL BOND 3" PARA IMPRESORA 3NSTAR SP200-SP500</h3>
         <p>Potencia de salida de 5W.</p>
-       <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 1,000</p>
+        <button class="add-to-cart" data-product="ROLLO PAPEL BOND" data-price="1000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/lavadora.jpg" alt="Producto 3">
-        <h3>LAVADORA TWIN 20Lbs</h3>
-        <p>Semi Automatica.</p>
-        <button class="btn-ver">Ver</button>
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+        <p class="price">RD$ 5,000</p>
+        <button class="add-to-cart" data-product="BOCINAS UNNO PULSE" data-price="5000">Agregar al Carrito</button>
     </div>
      <div class="product-card">
         <img src="images/productos/nevera2.jpg" alt="Producto 3">
-        <h3>NEVERA SAMSUNG </h3>
-        <p>27P Side by Side</p>
-       <button class="btn-ver">Ver</button>
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+       
     </div>
      <div class="product-card">
         <img src="images/productos/nevera.png" alt="Producto 3">
-        <h3>NEVERA EJECUTIVA  DE 1.7 PIES CUBICOS</h3>
-        <p>NEGRA G 17BK</p>
-        <button class="btn-ver">Ver</button>
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+        
     </div>
      <div class="product-card">
         <img src="images/productos/aire2.jfif" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
         <p>Potencia de salida de 5W.</p>
-       <button class="btn-ver">Ver</button>
+       
     </div>
      <div class="product-card">
         <img src="images/productos/aire.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
         <p>Potencia de salida de 5W.</p>
-        <button class="btn-ver">Ver</button>
+        
     </div>
      <div class="product-card">
         <img src="images/productos/Abanicos2.jpg" alt="Producto 3">
         <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
         <p>Potencia de salida de 5W.</p>
-        <button class="btn-ver">Ver</button>
+        
     </div>
      <div class="product-card">
         <img src="images/productos/lapto.jfif" alt="Producto 3">
         <h3>PORTÁTIL (HO) DELL INSPIRON 3520</h3>
         <p>CI7/3.5GHZ/8GB/512GB SSD/W11H/15.6" (9NN06)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 40,000</p>
+        <button class="add-to-cart" data-product="PORTÁTIL DELL INSPIRON 3520" data-price="40000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/Laptop5.jpg" alt="Producto 3">
         <h3>PORTÁTIL (HO) LENOVO IDEAPAD 1I CI3/3.3GHZ/8GB/256GB SSD/W11H/15.6"/TOUCH</h3>
         <p>(82QD00DHUS)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 35,000</p>
+        <button class="add-to-cart" data-product="PORTÁTIL LENOVO IDEAPAD 1I" data-price="35000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/lapto4.jpg" alt="Producto 3">
         <h3>PORTÁTIL (HO) LENOVO IDEAPAD 1 CI5/1.3GHZ/16GB/512GB SSD/W11H/15.6" TOUCH</h3>
         <p>(83B40001US).</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 38,000</p>
+        <button class="add-to-cart" data-product="PORTÁTIL LENOVO IDEAPAD 1" data-price="38000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/silla.jfif" alt="Producto 3">
         <h3>SILLÓN EJECUTIVO STARKEN EN POLYPIEL</h3>
         <p>(LY-001A)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 15,000</p>
+        <button class="add-to-cart" data-product="SILLÓN EJECUTIVO STARKEN" data-price="15000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/silla2.jfif" alt="Producto 3">
         <h3>SILLA SEMI EJECUTIVA STARKEN EN PIEL GREEN</h3>
         <p>(HLC-1688FX-2)</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 12,000</p>
+        <button class="add-to-cart" data-product="SILLA SEMI EJECUTIVA STARKEN" data-price="12000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/moni.jfif" alt="Producto 3">
         <h3>MONITOR CURVED SAMSUNG 34</h3>
         <p>GAMING LED/HDMI/DP/USB/WQHD BLACK</p>
-        <button class="btn-ver">Ver</button>
+        <p class="price">RD$ 30,000</p>
+        <button class="add-to-cart" data-product="MONITOR CURVED SAMSUNG 34" data-price="30000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/abanicos.png" alt="Producto 3">
-        <h3>ABANICO UNIVERSAL</h3>
-        <p>Abanico de pared.</p>
-        <button class="btn-ver">Ver</button>
-
-        
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+        <p class="price">RD$ 5,000</p>
+        <button class="add-to-cart" data-product="BOCINAS UNNO PULSE" data-price="5000">Agregar al Carrito</button>
     </div>
       <div class="product-card">
         <img src="images/productos/fire.jfif" alt="Producto 3">
-        <h3>FIRE TV</h3>
-        <p>Fire tv.</p>
-        <button class="btn-ver">Ver</button>
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+        
     </div>
       <div class="product-card">
         <img src="images/productos/fire1.jpg" alt="Producto 3">
-        <h3>FIRE STICK 4K</h3>
-        <p>Fire Tv.</p>
-        <button class="btn-ver">Ver</button>
+        <h3>BOCINAS PORTABLE UNNO PULSE SP9209BK</h3>
+        <p>Potencia de salida de 5W.</p>
+        
     </div>
     <!-- Agrega más aquí -->
   </main>
-  <div id="productModal" class="modal hidden">
-  <div class="modal-content animate">
-    <span id="closeModal" class="close">&times;</span>
-    <img id="modalImg" src="" alt="Producto" class="modal-image">
-    <h3 id="modalTitle" class="modal-title"></h3>
-    <p id="modalDesc" class="modal-text"></p>
-  </div>
-</div>
-
+  
 
 <!-- SLIDER ADICIONAL -->
 <section class="slider-extra">
@@ -352,6 +387,17 @@
        Calle principal Palmar Abajo Villa Gonzalez #30 &copy; 2025 Sanrodtechn Communications 
     </footer>
     <script src="index.js"></script>
+    <script src="carrito.js"></script>
+    <script>
+        // Filtros aquí
+    </script>
+
+    <!-- Icono flotante del carrito -->
+    <div id="carrito-flotante">
+        <a href="carrito.html">
+            🛒 <span id="carrito-count">0</span>
+        </a>
+    </div>
 
 <!-- Botón para subir -->
 <button id="btnSubir">↑</button>
@@ -374,120 +420,8 @@
     });
   });
 </script>
-<!-- Modal -->
-
-</div>
-<script>
- // ========== Variables del modal (declaradas antes de usarlas) ==========
-    const modal = document.getElementById("productModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDesc = document.getElementById("modalDesc");
-    const closeModal = document.getElementById("closeModal");
-
-    // ========== Abrir modal (delegación simple con querySelectorAll) ==========
-    document.querySelectorAll(".btn-ver").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const card = btn.closest(".product-card");
-        // Prioriza atributos data-* si existen; si no, toma la info de la tarjeta
-        const imgSrc = btn.getAttribute("data-img") || (card.querySelector("img") ? card.querySelector("img").src : "");
-        const title = btn.getAttribute("data-title") || (card.querySelector("h3") ? card.querySelector("h3").textContent.trim() : "Sin título");
-        const desc = btn.getAttribute("data-desc") || (card.querySelector(".card-desc") ? card.querySelector(".card-desc").textContent.trim() : "Sin descripción");
-
-        modalImg.src = imgSrc;
-        modalImg.alt = title;
-        modalTitle.textContent = title;
-        modalDesc.textContent = desc;
-
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-      });
-    });
-
-    // ========== Cerrar modal ==========
-    closeModal.addEventListener("click", () => {
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-    });
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-      }
-    });
-
-    // Esc para cerrar
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("show")) {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-      }
-    });
 
 
-    // Slider Extra - Animado y Responsive
-const extraSlides = document.querySelector('.extra-slides');
-const prevBtn = document.querySelector('.extra-prev');
-const nextBtn = document.querySelector('.extra-next');
-let position = 0;
-let autoSlide;
-
-// Ajusta número de imágenes visibles según ancho
-function slidesVisible() {
-    if (window.innerWidth > 1200) return 5;
-    if (window.innerWidth > 992) return 4;
-    if (window.innerWidth > 768) return 3;
-    return 2;
-}
-
-function slideWidth() {
-    return extraSlides.children[0].clientWidth + 15;
-}
-
-function updateSlide() {
-    extraSlides.style.transform = `translateX(-${position * slideWidth()}px)`;
-}
-
-function nextSlide() {
-    if (position < extraSlides.children.length - slidesVisible()) {
-        position++;
-    } else {
-        position = 0;
-    }
-    updateSlide();
-}
-
-function prevSlide() {
-    if (position > 0) {
-        position--;
-    } else {
-        position = extraSlides.children.length - slidesVisible();
-    }
-    updateSlide();
-}
-
-// Eventos botones
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
-
-// Animación automática cada 3s
-function autoPlay() {
-    autoSlide = setInterval(nextSlide, 3000);
-}
-autoPlay();
-
-// Pausa al pasar el mouse
-extraSlides.addEventListener('mouseenter', () => clearInterval(autoSlide));
-extraSlides.addEventListener('mouseleave', autoPlay);
-
-// Actualiza al cambiar resolución
-window.addEventListener('resize', updateSlide);
-
-</script>
-
- 
 </body>
 </html>
-
-
 
