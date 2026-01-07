@@ -15,7 +15,7 @@ body {
 
 /* Header */
 .header {
-    background-color: #004aad;
+    background: linear-gradient(135deg, #004aad, #007bff);
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -181,6 +181,33 @@ nav a:hover {
     margin-bottom: 5px;
 }
 
+.product-card .price {
+    color: #ff4500;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-card .reviews {
+    color: #ffa500;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.product-card .add-to-cart {
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card .add-to-cart:hover {
+    background-color: #003399;
+}
+
 .product-card strong {
     color: #ff4500;
     font-size: 1rem;
@@ -289,161 +316,6 @@ footer {
   transform: scale(1.2) rotate(5deg);
   box-shadow: 0 0 20px rgba(0, 153, 255, 1);
 }
-/* FONDO DEL MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 999;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-/* CAJA DEL CONTENIDO */
-.modal-content {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  width: 95%;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  animation: fadeIn 0.3s ease;
-  position: relative;
-}
-
-/* IMAGEN */
-.modal-image {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-
-/* TITULO */
-.modal-title {
-  font-size: 1.4rem;
-  color: #007bff;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-/* DESCRIPCIÓN */
-.modal-text {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.5;
-  background: #f4f8ff;
-  border-radius: 8px;
-  padding: 12px;
-}
-
-/* BOTÓN CERRAR */
-.close {
-  position: absolute;
-  top: 6px;
-  right: 12px;
-  font-size: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #777;
-}
-
-.close:hover {
-  color: red;
-}
-/* Botón Ver */
-/* Botón Ver */
- /* Botón Ver */
-    .btn-ver {
-      background: linear-gradient(45deg,#0066cc,#00bcd4);
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: transform .18s ease, box-shadow .18s ease;
-      box-shadow: 0 6px 14px rgba(0,0,0,.12);
-    }
-    .btn-ver:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,.15); }
-    .btn-ver:active { transform: translateY(0); }
-
-/* Modal */
-/* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: none; /* oculto por defecto */
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.6);
-      z-index: 9999;
-      padding: 20px;
-    }
-    .modal.show { display: flex; }
-
-    .modal-content {
-      background: #fff;
-      width: 100%;
-      max-width: 560px;
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      text-align: center;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-      animation: slideDown .22s ease;
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .modal-image { width: 100%; max-height: 300px; object-fit: contain; border-radius: 8px; margin-bottom: 14px; }
-    .modal-title { margin: 6px 0 10px; font-size: 1.15rem; }
-    .modal-text { color: #444; font-size: 0.98rem; line-height: 1.4; }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      font-size: 22px;
-      color: #333;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    /* Botón subir (ejemplo) */
-    #btnSubir {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      font-weight: 700;
-      background: #0066cc;
-      color: white;
-      border: none;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-/* Animación */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-
 
 /* Animación del botón */
 @keyframes pulse {
@@ -456,6 +328,188 @@ footer {
   100% {
     box-shadow: 0 0 8px rgba(0, 153, 255, 0.7);
   }
+}
+
+/* Estilos para carrito */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.carrito-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-item h3 {
+    margin: 0;
+}
+
+.carrito-item p {
+    margin: 5px 0;
+}
+
+.carrito-item button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-item .decrease,
+.carrito-item .increase {
+    background-color: #ccc;
+}
+
+.carrito-item .remove {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+#checkout {
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+#checkout:hover {
+    background-color: #003399;
+}
+
+#checkout-form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#checkout-form input,
+#checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#checkout-form button {
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+#checkout-form button:hover {
+    background-color: #003399;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        padding: 10px;
+    }
+    
+    .slider-container {
+        height: 200px;
+    }
+    
+    .caption h3 {
+        font-size: 1rem;
+    }
+    
+    .caption p {
+        font-size: 0.8rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Icono flotante del carrito */
+#carrito-flotante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #004aad;
+    color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+#carrito-flotante:hover {
+    background-color: #003399;
+}
+
+#carrito-flotante a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+    
+    .product-card h3 {
+        font-size: 1rem;
+    }
+    
+    .product-card .price {
+        font-size: 1rem;
+    }
 }
 
 /* RESPONSIVE GENERAL */
