@@ -159,6 +159,95 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ======================
+     PAYPAL
+  ======================= */
+  paypal.Buttons({
+    createOrder: (data, actions) => {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: (calcularTotal() / 60).toFixed(2) // RD$ → USD aprox
+          }
+        }]
+      });
+    },
+        onApprove: (data, actions) => {
+      return actions.order.capture().then(() => {
+        localStorage.removeItem("carrito");
+        document.getElementById("checkout-form").style.display = "none";
+        document.getElementById("paypal-button-container").style.display = "none";
+        document.getElementById("confirmacion").style.display = "block";
+      });
+    }
+  }).render("#paypal-button-container");
+
+});
+function nextStep(step) {
+  document.querySelectorAll(".checkout-step").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+
+  document.getElementById(`paso${step}`).classList.add("active");
+  document.getElementById(`step-${step}`).classList.add("active");
+}
+
+function validarDatos() {
+  const campos = ["nombre", "email", "telefono", "direccion"];
+  let valido = true;
+
+  campos.forEach(id => {
+    if (!document.getElementById(id).value.trim()) {
+      valido = false;
+    }
+  });
+
+  if (!valido) {
+    alert("⚠️ Complete todos los datos");
+    return;
+  }
+
+  // Activar PayPal
+  const paypal = document.getElementById("paypal-button-container");
+  paypal.classList.remove("disabled");
+  paypal.querySelector(".bloqueo").style.display = "none";
+
+  nextStep(3);
+}
+const paypal = require('@paypal/checkout-server-sdk');
+
+const paypalClient = new paypal.core.PayPalHttpClient(
+  new paypal.core.SandboxEnvironment(
+    process.env.PAYPAL_CLIENT_ID,
+    process.env.PAYPAL_SECRET
+  )
+);
+paypal.Buttons({
+  createOrder: async () => {
+    const res = await fetch('/paypal/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        total: (totalRD / 60).toFixed(2)
+      })
+    });
+    const data = await res.json();
+    return data.id;
+  },
+
+  onApprove: async (data) => {
+    await fetch('/paypal/capture-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orderID: data.orderID,
+        pedidoId
+      })
+    });
+
+    // mostrar confirmación
+  }
+   }).render('#paypal-button-container'); 
+    
   /* =======================
      INICIALIZAR
   ======================== */
