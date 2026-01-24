@@ -41,6 +41,7 @@ h1 {
   position: relative;
   cursor: pointer;
   animation: fadeUp 1s ease forwards;
+  padding-bottom: 10px; 
 }
 
 /* Hover: actitud comercial */
