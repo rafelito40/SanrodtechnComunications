@@ -1,0 +1,79 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo general del body */
+body {
+    background-color: #f4f6f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Contenedor del catálogo */
+.catalogo {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+/* Tarjeta de producto */
+.producto {
+    background-color: #ffffff;
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    padding-bottom: 15px;
+}
+
+/* Hover efecto */
+.producto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* Imagen del producto */
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #f8f8f8;
+    padding: 10px;
+}
+
+/* Nombre del producto */
+.producto h3 {
+    margin: 15px 10px 8px;
+    font-size: 18px;
+    color: #1f3a5f;
+}
+
+/* Descripción */
+.producto p {
+    margin: 0 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+    .producto {
+        width: 90%;
+    }
+}
