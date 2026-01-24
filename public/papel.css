@@ -1,0 +1,4 @@
+body { font-family: Arial; background:#ffffff; padding:20px; }
+.catalogo { display:flex; gap:20px; justify-content:center; }
+.producto { background:#f0f0f0; padding:15px; width:220px; text-align:center; }
+.producto img { width:100%; }
