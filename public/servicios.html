@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios - Sanrodtechn Communications</title>
+  <title>Servicios Premium - Sanrodtechn Communications</title>
   <link rel="stylesheet" href="servicios.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER NEÓN ===== -->
   <header class="header">
     <div class="container header-container">
       <div class="logo-container">
         <img src="images/productos/logo.png" alt="Sanrodtechn Logo" class="logo" />
-        <h1>Sanrodtechn Communications</h1>
+        <div class="texto-logo">
+          <h1>Sanrodtechn Communications</h1>
+          <p>Innovación & Soluciones</p>
+        </div>
       </div>
-      <nav class="nav">
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <nav class="nav" id="nav-menu">
         <a href="index.html">Inicio</a>
         <a href="catalogo.html">Catálogo</a>
         <a href="servicios.html" class="active">Servicios</a>
@@ -25,86 +33,89 @@
     </div>
   </header>
 
-  <!-- ===== SLIDER ===== -->
-  <section class="slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="images/productos/epsonl3250.png" alt="Venta de equipos">
-        <div class="caption">
-          <h2>Venta y Configuración de Equipos</h2>
-          <p>Computadoras, routers, impresoras y accesorios tecnológicos.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="images/productos/pagatodo.png" alt="Soluciones digitales">
-        <div class="caption">
-          <h2>Ofrece Servicios de pago de Facturas</h2>
-          <p>Diseño web, sistemas empresariales e integración tecnológica.</p>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="images/productos/carnet.jpg" alt="Mantenimiento técnico">
-        <div class="caption">
-          <h2>Carnet Para Realizar tus Pagos Con Targeta</h2>
-          <p>Realizar pagos de facturas de servicios basicos y compra de recarga telefónicas, de una manera rápida y segura.</p>
-        </div>
-      </div>
-<div class="slide">
-        <img src="images/productos/paga_todo.jfif" alt="Mantenimiento técnico">
-        <div class="caption">
-          <h2>Todos los Servicioss de Pagos</h2>
-          <p>Realizar pagos de facturas  de una manera rápida y segura.</p>
-        </div>
-      </div>
-      <div class="controls">
-        <span class="prev">❮</span>
-        <span class="next">❯</span>
-      </div>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-servicios">
+    <div class="container">
+      <h1 data-aos="zoom-in">Nuestras <span>Soluciones</span></h1>
+      <p data-aos="fade-up" data-aos-delay="200">En Sanrodtechn Communications acercamos el futuro a tus manos. Explora nuestros servicios personalizados para tu hogar o empresa, diseñados con los más altos estándares tecnológicos.</p>
     </div>
   </section>
+
+  <!-- ===== SERVICIOS GRID ===== -->
+  <main class="container">
+    <div class="servicios-grid">
+      
+      <!-- Servicio 1 -->
+      <div class="servicio-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-glow">💻</div>
+        <h3>Venta y Configuración</h3>
+        <p>Instalación y optimización de computadoras, redes WiFi, routers, impresoras y accesorios tecnológicos para sacar su máximo potencial.</p>
+        <button class="contact-btn" onclick="window.location.href='https://wa.me/18296232138?text=Hola,%20me%20interesa%20información%20sobre%20venta%20y%20configuración%20de%20equipos.'">Solicitar Información</button>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="servicio-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-glow">🌐</div>
+        <h3>Sistemas Empresariales</h3>
+        <p>Integración tecnológica, estructuración de diseño web y desarrollo de redes empresariales robustas para tu negocio.</p>
+        <button class="contact-btn" onclick="window.location.href='https://wa.me/18296232138?text=Hola,%20me%20interesa%20información%20sobre%20sistemas%20empresariales.'">Solicitar Información</button>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="servicio-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-glow">💳</div>
+        <h3>Gestión de Pagos</h3>
+        <p>Ofrecemos servicios de pago de facturas, recargas telefónicas y pago de servicios básicos de manera ultrarrápida y 100% segura.</p>
+        <button class="contact-btn" onclick="window.location.href='https://wa.me/18296232138?text=Hola,%20me%20interesa%20información%20sobre%20la%20gestión%20de%20pagos.'">Solicitar Información</button>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="servicio-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon-glow">🪪</div>
+        <h3>Carnetización Inteligente</h3>
+        <p>Implementación de carnets digitales o físicos exclusivos para agilizar la realización de tus pagos con tarjeta y control de identidad.</p>
+        <button class="contact-btn" onclick="window.location.href='https://wa.me/18296232138?text=Hola,%20me%20interesa%20información%20sobre%20los%20servicios%20de%20carnets.'">Solicitar Información</button>
+      </div>
+      
+    </div>
+  </main>
 
   <!-- ===== NOSOTROS ===== -->
-  <section class="nosotros">
-    <div class="container">
-      <h2>Nosotros</h2>
-      <p><strong>SANRODTECHN COMMUNICATIONS</strong> es una empresa especializada en soluciones tecnológicas integrales para hogares y negocios. Brindamos servicios confiables, accesibles y personalizados.</p>
-
-      <h3>🎯 Nuestra misión</h3>
-      <p>Acercar la tecnología a las personas de forma sencilla, segura y eficiente, acompañando su crecimiento personal o empresarial.</p>
+  <section class="nosotros-premium" data-aos="fade-up">
+    <div class="container nos-cubo">
+      <h2>Descubre la diferencia <span>Sanrodtechn</span></h2>
+      <p>Somos mucho más que una empresa; somos tu socio tecnológico. Nos apasiona brindar soluciones integrales, rápidas y personalizadas tanto para el hogar como para las grandes empresas de la República Dominicana.</p>
+      
+      <div class="mision-box">
+        <h3>🎯 Nuestra Misión</h3>
+        <p>Acercar la tecnología de vanguardia a las personas de forma segura, sencilla y eficiente, acompañando su crecimiento día tras día.</p>
+      </div>
     </div>
   </section>
+
+  <!-- ===== BOTÓN FLOTANTE WHATSAPP ===== -->
+  <a href="https://wa.me/18296232138?text=¡Hola!%20Quisiera%20más%20información%20sobre%20sus%20servicios." class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Sanrodtechn Communications | Todos los derechos reservados</p>
+    <p>© 2025 Sanrodtechn Communications | Todos los derechos reservados | Palmar Abajo, Villa Gonzalez</p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-  const slides = document.querySelectorAll('.slide');
-  let current = 0;
-
-  const showSlide = (index) => {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-  };
-
-  document.querySelector('.next').addEventListener('click', () => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  });
-
-  document.querySelector('.prev').addEventListener('click', () => {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-  });
-
-  setInterval(() => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }, 6000);
+    AOS.init({ duration: 1000, once: true });
+    
+    // Menú móvil
+    const menuToggle = document.getElementById("mobile-menu");
+    const navMenu = document.getElementById("nav-menu");
+    if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    }
   </script>
-
 </body>
 </html>
