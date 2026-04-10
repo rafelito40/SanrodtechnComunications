@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: "auto",
     loop: true,
     coverflowEffect: {
-      rotate: 30,
+      rotate: 0,
       stretch: 0,
-      depth: 250,
-      modifier: 1,
+      depth: 150,
+      modifier: 2,
       slideShadows: true,
+      scale: 0.8,
     },
-    speed: 800,
+    speed: 1200,
     autoplay: {
-      delay: 1500,
+      delay: 1000,
       disableOnInteraction: false,
-      pauseOnMouseEnter: true,
     },
     pagination: {
       el: ".swiper-pagination",
