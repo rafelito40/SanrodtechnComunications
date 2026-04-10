@@ -3,3 +3,7 @@ h1 { text-align:center; }
 .catalogo { display:flex; gap:20px; justify-content:center; }
 .producto { background:#fff; padding:15px; border-radius:10px; width:220px; text-align:center; }
 .producto img { width:100%; border-radius:8px; }
+
+
+/* Fix Logo Visibilidad */
+.logo, .logo-container img.logo { background-color: #ffffff !important; padding: 5px !important; border-radius: 12px !important; border: 2px solid #00e5ff !important; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important; }
