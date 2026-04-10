@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Fondo general */
+body {
+  background: linear-gradient(135deg, #f4f7fb, #e9eef5);
+  padding: 30px;
+  color: #333;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  color: #1f3c88;
+  letter-spacing: 1px;
+  animation: fadeDown 0.9s ease forwards;
+}
+
+/* Contenedor catálogo */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+/* Tarjeta producto */
+.producto {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  cursor: pointer;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+/* Hover elegante */
+.producto:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(31, 60, 136, 0.25);
+}
+
+/* Imagen — MÁS PEQUEÑA Y LIMPIA */
+.producto img {
+  width: 100%;
+  height: auto;
+  max-height: 135px;        /* 👈 aquí bajamos fuerte el tamaño */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  padding: 8px;            /* 👈 menos aire */
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Zoom suave */
+.producto:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+/* Contenido */
+.producto h3 {
+  font-size: 1.02rem;
+  margin: 8px 14px 4px;     /* 👈 más compacto */
+  color: #1f3c88;
+}
+
+.producto p {
+  margin: 0 14px 12px;     /* 👈 más compacto */
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.35;
+}
+
+/* Banda promocional */
+.producto::after {
+  content: "¡Disponible!";
+  position: absolute;
+  top: 14px;
+  left: -60px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+  padding: 5px 68px;
+  transform: rotate(-45deg);
+  font-size: 0.72rem;
+  font-weight: bold;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .producto img {
+    max-height: 115px;   /* 👈 aún más pequeña en móvil */
+    padding: 6px;
+  }
+
+  .producto h3 {
+    font-size: 0.95rem;
+  }
+
+  .producto p {
+    font-size: 0.85rem;
+  }
+}

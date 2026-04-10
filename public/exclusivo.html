@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanrodtechn Tech Store — Equipos & Soporte</title>
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+}
+
+.thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: .3s;
+}
+
+.thumb img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover más bonito */
+.thumb:hover {
+  border-color: #00aaff;
+  transform: scale(1.05);
+}
+
+/* Seleccionado */
+.thumb.active {
+  border-color: #ff8800;
+  transform: scale(1.08);
+}
+
+
+    :root{
+      --bg:#21619c;        /* oscuro */
+      --card:#0b1a2b;
+      --accent:#00eaff;
+      --muted:#53728b;
+      --text:#e6eef6;
+      --glass: rgba(255,255,255,0.04);
+      --gold: #d4af37;
+      --white:#ffffff;
+      transition: 200ms ease;
+    }
+    :root[data-theme="light"]{
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --accent: #0b6cff;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --glass: rgba(11,18,32,0.04);
+      --gold: #b07c2a;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg), #071226);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), transparent);
+      padding:14px 6%;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      backdrop-filter: blur(6px);
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand img{ width:54px;height:54px;border-radius:8px; object-fit:cover; box-shadow: 0 6px 18px rgba(0,0,0,0.4); }
+    .brand h1{ font-size:18px; margin:0; letter-spacing:0.6px;}
+    .brand p{ margin:0; font-size:12px; color:var(--muted) }
+
+    nav{ display:flex; gap:14px; align-items:center; }
+    nav a{
+      color:var(--text); text-decoration:none; font-weight:600; padding:8px 12px; border-radius:8px; transition:all .18s;
+    }
+    nav a:hover{ transform:translateY(-3px); background:var(--glass) }
+
+    .controls { display:flex; gap:10px; align-items:center; }
+
+    .toggle{
+      background:transparent;border:1px solid rgba(255,255,255,0.06); padding:8px;border-radius:10px; cursor:pointer;
+    }
+
+    /* Hero with video */
+    .hero{
+      margin-top:86px;
+      position:relative;
+      height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .hero video{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(.45);
+    }
+    .hero .overlay{
+      position:relative; z-index:2; text-align:left; max-width:1200px; width:100%; padding:30px 6%;
+      display:flex; gap:32px; align-items:center;
+    }
+    .hero .left{ flex:1; }
+    .hero h2{ font-size:44px; margin:0 0 12px 0; line-height:1; letter-spacing:-0.6px; color:var(--white); text-shadow:0 6px 30px rgba(0,0,0,.6) }
+    .hero p{ color:var(--muted); margin-bottom:18px; font-size:18px; max-width:640px; }
+    .hero .actions{ display:flex; gap:12px; flex-wrap:wrap }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; background:linear-gradient(90deg,var(--accent),#8bfffa); color:#001; padding:12px 18px; font-weight:700; border:none; border-radius:12px; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.35); transition:transform .18s, box-shadow .18s;
+    }
+    .btn.secondary{ background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06); box-shadow:none }
+    .btn:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,0.5) }
+
+    /* Slider small thumbnails right */
+    .hero .right{
+      width:360px; display:flex; flex-direction:column; gap:12px;
+    }
+    .thumb{
+      height:96px; border-radius:12px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.04);
+      cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    }
+    .thumb img{ width:100%; height:100%; object-fit:cover; transform:scale(1.06); transition:transform .6s; }
+    .thumb:hover img{ transform:scale(1.0) }
+
+    /* Catalog */
+    .container{ max-width:1200px; margin:0 auto; padding:36px 6%; }
+    .catalog-header{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:30px; }
+    .catalog-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px; margin-top:18px; }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05)); border-radius:14px; padding:14px; overflow:hidden; position:relative; transition: transform .25s, box-shadow .25s;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card:hover{ transform:translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.5) }
+    .card .media{ height:180px; border-radius:10px; overflow:hidden; }
+    .card .media img{ width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.03); transition:transform .45s; }
+    .card:hover .media img{ transform:scale(1.0) }
+    .card .info{ padding:12px 6px; }
+    .card h4{ margin:0 0 8px 0; font-size:18px; }
+    .price{ font-weight:800; color:var(--accent); }
+    .badges{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap }
+    .badge{ background:rgba(255,255,255,0.04); padding:6px 8px; border-radius:8px; font-size:13px; color:var(--muted) }
+
+    .card .actions{ display:flex; gap:8px; margin-top:12px }
+    .small-btn{ padding:8px 10px; border-radius:8px; border:none; cursor:pointer; background:rgba(255,255,255,0.03); color:var(--text); font-weight:700; transition:all .18s }
+    .small-btn:hover{ transform:translateY(-4px) }
+
+    /* Animated card detail modal */
+    .modal{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:3000; background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.7));
+    }
+    .modal.open{ display:flex }
+    .modal .panel{
+      width:min(920px,94%); max-height:88vh; overflow:auto; background:var(--card); border-radius:14px; padding:18px; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.6)
+    }
+    .modal .close{ position:absolute; right:14px; top:14px; background:transparent;border:none;color:var(--muted); font-size:20px; cursor:pointer }
+
+    /* Support */
+    .support{ margin-top:40px; display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start; }
+    .support .box{ background:var(--card); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03) }
+    .support h3{ margin:0 0 12px 0 }
+    .form-field{ margin-bottom:12px }
+    input[type="text"], input[type="email"], textarea{
+      width:100%; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.06); font-size:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); color:var(--text);
+    }
+    textarea{ min-height:120px; resize:vertical }
+
+    /* Footer */
+    footer{ margin-top:40px; padding:36px 6%; text-align:center; color:var(--muted); font-size:14px; }
+
+    /* Responsive */
+    @media (max-width: 1000px){
+      .catalog-grid{ grid-template-columns: repeat(2,1fr); }
+      .hero .right{ display:none }
+    }
+    @media (max-width: 700px){
+      .catalog-grid{ grid-template-columns: 1fr; }
+      .support{ grid-template-columns: 1fr; }
+      header{ padding:12px 4% }
+      .hero h2{ font-size:28px }
+      .hero p{ font-size:15px }
+      .brand h1{ font-size:16px }
+    }
+
+    /* helper small text */
+    .muted-sm{ color:var(--muted); font-size:13px }
+    .code-pill{ background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:8px; font-weight:700; color:var(--gold); font-size:13px }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <img src="images/productos/logo.png" alt="logo (images/productos/logo.png)" onerror="this.style.display='none'">
+      <div>
+        <h1>Sanrodtechn Communications</h1>
+        <p>RNC: 133078961 · Tecnología y Soporte RD</p>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px" class="controls">
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <button class="toggle" id="themeToggle" title="Cambiar tema (claro/oscuro)">🌙</button>
+      <button class="toggle" id="cartBtn" title="Ver carrito">🛒 <span id="cartCount" style="font-weight:700;margin-left:6px">0</span></button>
+    </div>
+  </header>
+
+  <!-- HERO con VIDEO -->
+  <section class="hero" id="inicio" aria-label="hero">
+    <!-- Reemplaza assets/hero.mp4 por tu video; si no quieres video, deja comentado -->
+    <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" id="heroVideo">
+      <source src="assets/hero.mp4" type="video/mp4">
+      <!-- Si no hay video, se verá poster -->
+    </video>
+
+    <div class="overlay">
+      <div class="left">
+        <h2>Tecnología a tu alcance — Equipos y Soporte Profesional</h2>
+        <p>En Sanrodtechn entregamos equipos de calidad, instalación y soporte técnico fiable para tu hogar y empresa. Revisiones, garantías y asesoría personalizada.</p>
+        <div class="actions">
+          <button class="btn" onclick="scrollToCatalog()">Ver catálogo</button>
+          <button class="btn secondary" onclick="openSupport()">Pedir soporte</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <!-- Thumbnails rápidas (opcional) -->
+        <div class="thumb" onclick="showFeatured(0)"><img src="images/productos/fire1.jpg" alt=""></div>
+        <div class="thumb" onclick="showFeatured(1)"><img src="images/productos/aire.jpg" alt=""></div>
+        <div class="thumb" onclick="showFeatured(2)"><img src="images/productos/lapto.jfif" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DINÁMICO -->
+  <section class="container" id="catalogo">
+    <div class="catalog-header">
+      <div>
+        <h2 style="margin:0">Catálogo destacado</h2>
+        <p style="color:white(--muted);margin:6px 0 0 0">Explora nuestras categorías y ofertas — haz clic en cualquier producto para ver detalles.</p>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <select id="filterCategory" style="padding:10px;border-radius:10px;background:var(--card);color:var(--text);border:1px solid rgba(255,255,255,0.05)">
+          <option value="all">Todas las categorías</option>
+        </select>
+        <input id="searchInput" type="text" placeholder="Buscar producto..." style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03); background:transparent; color:white(--text)">
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+      <button class="btn" onclick="printCatalog()">Imprimir catálogo</button>
+      <button class="btn secondary" onclick="exportCSV()">Exportar CSV</button>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid" aria-live="polite">
+      <!-- Cards generadas por JS -->
+    </div>
+  </section>
+
+  <!-- Soporte técnico -->
+  <section class="container" id="servicios">
+    <div class="support">
+      <div class="box">
+        <h3>Soporte técnico y mantenimiento</h3>
+        <p style="color:var(--muted)">Contamos con planes de mantenimiento, diagnósticos remotos y visitas técnicas. Describe tu problema y te contactamos en menos de 24 horas.</p>
+
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <div style="flex:1" class="box">
+            <strong>Horario</strong>
+            <p style="color:var(--muted);margin:6px 0 0 0">Lun - Vie: 8:00 - 18:00</p>
+          </div>
+          <div style="flex:1" class="box">
+            <strong>Contacto</strong>
+            <p style="color:var(--muted);margin:6px 0 0 0">Tel: 849-623-2138 / 829-870-1523</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top:14px">Preguntas frecuentes</h4>
+        <details style="margin-top:8px">
+          <summary>¿Hacen instalación a domicilio?</summary>
+          <p style="color:var(--muted);margin-top:6px">Sí, tenemos técnicos certificados que visitan tu ubicación.</p>
+        </details>
+        <details style="margin-top:6px">
+          <summary>¿Tienen garantía?</summary>
+          <p style="color:var(--muted);margin-top:6px">Sí, la mayoría de equipos cuentan con garantía y ofrecemos soporte posterior.</p>
+        </details>
+      </div>
+
+      <aside class="box">
+        <h3>Solicita soporte</h3>
+        <form id="supportForm">
+          <div class="form-field">
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-field">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-field">
+            <input type="text" id="telefono" placeholder="Teléfono (opcional)">
+          </div>
+          <div class="form-field">
+            <textarea id="mensaje" placeholder="Describe tu problema..." required></textarea>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn" style="flex:1">Enviar solicitud</button>
+            <button type="button" class="btn secondary" style="flex:1" onclick="openWhatsApp()">WhatsApp</button>
+          </div>
+          <p id="supportResult" style="margin-top:10px;color:var(--muted);font-size:14px"></p>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer y contacto -->
+  <footer id="contacto">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 6%">
+      <p style="margin:2px 0;">© 2025 Sanrodtechn Communications</p>
+      <p style="margin:2px 0;color:var(--muted)">Tel. 849-623-2138 | 829-870-1523 · Villa González, Santiago, RD</p>
+      <p style="margin:6px 0;color:var(--muted)">Instagram: @sanrodtech_comunication · Facebook: Santos Rodriguez Technology</p>
+    </div>
+  </footer>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true">
+      <button class="close" onclick="closeModal()">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    /*******************************
+     * Datos del catálogo (simulación)
+     * -> Totalmente local: no DB, no fetch
+     *******************************/
+    const PRODUCTS = [
+      { id:1, code:"PRD-001", title:"Laptop Ultrafast X15", price:25999, category:"Laptops", img:"images/productos/laptopcore.jpg", short:"Procesador i7 12a gen · 16GB RAM · 512GB SSD", stock:12 },
+      { id:2, code:"PRD-002", title:"Router AX3000 Pro", price:8999, category:"Redes", img:"images/productos/router.jpg", short:"WiFi 6 · 3000Mbps · 4 antenas", stock:6 },
+      { id:3, code:"PRD-003", title:"Monitor 27\" 144Hz", price:10999, category:"Monitores", img:"images/productos/moni.jfif", short:"144Hz · 1ms · IPS", stock:10 },
+      { id:4, code:"PRD-004", title:"Teclado Mecánico RGB", price:2199, category:"Periféricos", img:"images/productos/teclado.jpg", short:"Switches ópticos · RGB", stock:22 },
+      { id:5, code:"PRD-005", title:"Cámara IP 4K", price:5999, category:"Cámaras", img:"images/productos/camara.jpg", short:"4K · Visión nocturna · PoE", stock:4 },
+      { id:6, code:"PRD-006", title:"SSD NVMe 1TB", price:4899, category:"Almacenamiento", img:"images/productos/ssd.png", short:"3.5GB/s · 5 años garantía", stock:30 },
+    ];
+
+    /* POBLAR FILTROS */
+    const categories = ["all", ...Array.from(new Set(PRODUCTS.map(p=>p.category)))];
+    const filterSelect = document.getElementById('filterCategory');
+    categories.forEach(c=>{
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c === 'all'? 'Todas las categorías' : c;
+      filterSelect.appendChild(opt);
+    });
+
+    /* RENDER CATALOG */
+    const catalogGrid = document.getElementById('catalogGrid');
+    function currency(n){ return n.toLocaleString('es-DO', { style:'currency', currency:'DOP' }) }
+    function renderProducts(filter='all', search=''){
+      catalogGrid.innerHTML = '';
+      const list = PRODUCTS.filter(p=>{
+        const okCat = filter === 'all' ? true : p.category === filter;
+        const okSearch = p.title.toLowerCase().includes(search.toLowerCase()) || p.short.toLowerCase().includes(search.toLowerCase()) || p.code.toLowerCase().includes(search.toLowerCase());
+        return okCat && okSearch;
+      });
+      if(list.length === 0){
+        catalogGrid.innerHTML = `<p style="grid-column:1/-1;color:var(--muted)">No se encontraron productos.</p>`;
+        return;
+      }
+      list.forEach(p=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="media"><img src="${p.img}" alt="${p.title}" onerror="this.src='assets/placeholder.jpg'"></div>
+          <div class="info">
+            <h4>${p.title}</h4>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="muted-sm">Código</div>
+                <div class="code-pill" style="margin-top:6px;">${p.code}</div>
+                <div style="color:var(--muted);font-size:13px;margin-top:8px">${p.short}</div>
+              </div>
+              <div style="text-align:right">
+                <div class="price">${currency(p.price)}</div>
+                <div style="font-size:13px;color:var(--muted);margin-top:6px">Stock: ${p.stock}</div>
+              </div>
+            </div>
+            <div class="badges"><span class="badge">${p.category}</span></div>
+            <div class="actions">
+              <button class="small-btn" onclick="openModal(${p.id})">Ver</button>
+              <button class="small-btn" onclick="addToCart(${p.id})">Agregar</button>
+            </div>
+          </div>
+        `;
+        catalogGrid.appendChild(card);
+      });
+    }
+
+    // inicial
+    renderProducts();
+
+    // filtros y búsqueda
+    filterSelect.addEventListener('change', ()=> renderProducts(filterSelect.value, document.getElementById('searchInput').value));
+    document.getElementById('searchInput').addEventListener('input', (e)=> renderProducts(filterSelect.value, e.target.value));
+
+    /* Modal de producto */
+    const productModal = document.getElementById('productModal');
+    const modalContent = document.getElementById('modalContent');
+    function openModal(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return;
+      modalContent.innerHTML = `
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:280px"><img src="${p.img}" alt="${p.title}" style="width:100%;border-radius:10px" onerror="this.src='assets/placeholder.jpg'"></div>
+          <div style="flex:1.2;min-width:300px">
+            <h2 style="margin-top:0">${p.title}</h2>
+            <p style="color:var(--gold);font-weight:700;margin:6px 0">Código: ${p.code} <button onclick="copyCode('${p.code}')" style="margin-left:8px;padding:6px 8px;border-radius:8px;border:none;cursor:pointer;background:rgba(255,255,255,0.03)">Copiar</button></p>
+            <p style="color:var(--muted)">${p.short}</p>
+            <p style="font-weight:800;font-size:20px;color:var(--accent)">${currency(p.price)}</p>
+            <p style="color:var(--muted)">Stock disponible: ${p.stock}</p>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <button class="btn" onclick="addToCart(${p.id});">Agregar al carrito</button>
+              <button class="btn secondary" onclick="closeModal()">Cerrar</button>
+            </div>
+
+            <h4 style="margin-top:18px">Descripción</h4>
+            <p style="color:var(--muted)">Descripción ampliada del producto. Aquí puedes agregar especificaciones técnicas, dimensiones, y lo que quieras. Este campo viene del backend en una integración real.</p>
+          </div>
+        </div>
+      `;
+      productModal.classList.add('open'); productModal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      productModal.classList.remove('open'); productModal.setAttribute('aria-hidden','true');
+    }
+
+    function copyCode(code){
+      try{
+        navigator.clipboard.writeText(code);
+        const el = document.createElement('div'); el.textContent = 'Código copiado ✔';
+        el.style.position='fixed'; el.style.right='20px'; el.style.bottom='20px'; el.style.padding='10px 14px'; el.style.background='var(--accent)'; el.style.borderRadius='10px'; el.style.color='#001'; el.style.fontWeight='700';
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),1400);
+      }catch(e){ alert('No se pudo copiar el código.'); }
+    }
+
+    // carrito simple (sin persistencia)
+    let cart = [];
+    function addToCart(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return;
+      cart.push(p);
+      document.getElementById('cartCount').textContent = cart.length;
+      // animación de confirmación breve
+      const btn = document.createElement('div');
+      btn.textContent = "Añadido ✔";
+      btn.style.position='fixed'; btn.style.right='20px'; btn.style.bottom='20px';
+      btn.style.padding='10px 14px'; btn.style.background='var(--accent)'; btn.style.borderRadius='10px'; btn.style.color='#001'; btn.style.fontWeight='700';
+      document.body.appendChild(btn);
+      setTimeout(()=>btn.remove(),1500);
+    }
+
+    /* HERO: mostrar featured en thumb clicks */
+    function showFeatured(i){
+      const sources = ["assets/producto3.jpg","assets/producto4.jpg","assets/producto6.jpg"];
+      const heroVideo = document.getElementById('heroVideo');
+      if(heroVideo) heroVideo.poster = sources[i] + '?v=' + Date.now();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function scrollToCatalog(){ document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); }
+    function openSupport(){ document.getElementById('servicios').scrollIntoView({behavior:'smooth'}); }
+
+    /* Soporte - simulación de envío */
+    document.getElementById('supportForm').addEventListener('submit', function(ev){
+      ev.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const result = document.getElementById('supportResult');
+
+      result.textContent = 'Enviando solicitud...';
+      setTimeout(()=>{
+        result.textContent = 'Solicitud enviada. Nuestro equipo te contactará pronto';
+        document.getElementById('supportForm').reset();
+      }, 900);
+    });
+
+    function openWhatsApp(){
+      const phone = '8496232138';
+      const text = encodeURIComponent('Hola, necesito soporte técnico. ');
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
+
+    /* Tema oscuro/claro */
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('site-theme') || 'dark';
+    if(saved === 'light'){ root.setAttribute('data-theme','light'); themeToggle.textContent = '☀️'; } else { root.removeAttribute('data-theme'); themeToggle.textContent = '🌙'; }
+
+    themeToggle.addEventListener('click', ()=>{
+      const cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      if(cur === 'dark'){ root.setAttribute('data-theme','light'); localStorage.setItem('site-theme','light'); themeToggle.textContent = '☀️'; }
+      else { root.removeAttribute('data-theme'); localStorage.setItem('site-theme','dark'); themeToggle.textContent = '🌙'; }
+    });
+
+    /* Export CSV simple */
+    function exportCSV(){
+      const rows = [ ['code','title','price','category','stock'] ];
+      PRODUCTS.forEach(p=> rows.push([p.code,p.title,p.price,p.category,p.stock]));
+      const csv = rows.map(r=> r.map(cell=> '"'+String(cell).replace(/"/g,'""')+'"').join(',')).join('\n');
+      const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'catalogo_sanrodtechn.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    /* Imprimir catálogo: abre nueva ventana con listado y manda imprimir */
+    function printCatalog(){
+      let html = `<html><head><title>Catálogo</title><meta charset='utf-8'><style>body{font-family:Arial,Helvetica,sans-serif;color:#111} .row{display:flex;justify-content:space-between;padding:8px;border-bottom:1px solid #ddd}</style></head><body>`;
+      html += `<h2>Catálogo Sanrodtechn - ${new Date().toLocaleDateString()}</h2>`;
+      PRODUCTS.forEach(p=>{
+        html += `<div class='row'><div><strong>${p.title}</strong><br><small>Código: ${p.code}</small></div><div><strong>${p.price.toLocaleString('es-DO',{style:'currency',currency:'DOP'})}</strong><br><small>Stock: ${p.stock}</small></div></div>`;
+      });
+      html += `</body></html>`;
+      const w = window.open('','_blank');
+      w.document.write(html);
+      w.document.close();
+      w.focus();
+      setTimeout(()=> w.print(),500);
+    }
+
+    /* accesibilidad: cerrar modal con ESC */
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+  </script>
+
+</body>
+</html>

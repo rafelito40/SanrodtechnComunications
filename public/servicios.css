@@ -1,0 +1,289 @@
+/* ==========================
+   RESET Y BASE
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   HEADER
+========================== */
+.header {
+  background: linear-gradient(90deg, #004aad, #0078ff);
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 65px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffd700;
+}
+
+/* ==========================
+   SLIDER
+========================== */
+/* ==========================
+   SLIDER AJUSTADO
+========================== */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* 🔧 Imagen ajustada dentro del slider */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔹 Mantiene la imagen completa visible sin recortes */
+  transform: scale(0.9); /* 🔹 Imagen más pequeña dentro del contenedor */
+  filter: brightness(85%);
+  transition: transform 1.5s ease-in-out;
+}
+
+/* 🔥 Efecto animado al activarse (ligero zoom pero sin salirse del marco) */
+.slide.active img {
+  transform: scale(0.95); /* 🔹 Pequeño zoom dentro del marco */
+}
+
+
+.caption {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  animation: fadeUp 1s ease forwards;
+}
+
+.caption h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.caption p {
+  font-size: 1rem;
+}
+
+/* Controles */
+.controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.controls span {
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+}
+
+.controls span:hover {
+  background: rgba(255, 215, 0, 0.7);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translate(-50%, 40px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ==========================
+   SECCIÓN NOSOTROS
+========================== */
+.nosotros {
+  background: linear-gradient(180deg, #f7f8fc 0%, #ffffff 100%);
+  padding: 60px 20px;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  overflow: hidden;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.nosotros .container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 1.5s ease forwards;
+}
+
+.nosotros h2 {
+  font-size: 2.2rem;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  letter-spacing: 1px;
+  animation: fadeInDown 1.3s ease;
+}
+
+.nosotros h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0078ff;
+  margin: 10px auto;
+  border-radius: 3px;
+}
+
+.nosotros p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.nosotros strong {
+  color: #0078ff;
+}
+
+.nosotros h3 {
+  font-size: 1.6rem;
+  color: #0d47a1;
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeInUp 1.3s ease;
+}
+
+/* ==========================
+   ANIMACIONES
+========================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+  margin-top: 40px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .caption h2 {
+    font-size: 1.3rem;
+  }
+
+  .slider {
+    height: 280px;
+  }
+
+  .nav a {
+    margin: 10px;
+  }
+}
+<<<<<<< HEAD
+
+=======
+>>>>>>> c094525 (Agrego contador de visitas y actualizo estilos)

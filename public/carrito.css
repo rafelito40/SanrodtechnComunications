@@ -1,0 +1,319 @@
+:root {
+  --primary: #0d6efd;
+  --success: #22c55e;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+.header {
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+.logo-container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.texto-logo h1 {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.texto-logo h2,
+.texto-logo p {
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+.nav a {
+  margin-right: 16px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+main h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+/* CARD BASE */
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 25px;
+}
+
+/* CARRITO ITEMS */
+.carrito-item {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+}
+
+.carrito-item h3 {
+  font-size: .95rem;
+  margin-bottom: 6px;
+}
+
+.carrito-item p {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.carrito-item button {
+  background: #e5e7eb;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.carrito-item .remove {
+  background: #fee2e2;
+  color: #b91c1c;
+  margin-top: 10px;
+}
+
+/* TOTAL */
+.total {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#total,
+#factura-total {
+  color: var(--success);
+  font-size: 1.3rem;
+}
+
+/* FACTURA */
+.factura {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.factura h3 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.factura-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #cbd5e1;
+  font-size: .9rem;
+}
+
+/* FORM */
+#checkout-form {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+#checkout-form h3 {
+  margin-bottom: 15px;
+}
+
+#checkout-form input,
+#checkout-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+}
+
+#checkout-form::after {
+  content: "🔒 Pago 100% seguro • Datos protegidos";
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* PAYPAL */
+#paypal-button-container {
+  margin-top: 30px;
+  background: var(--card);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* CONFIRMACION */
+.confirmacion {
+  display: none;
+  background: linear-gradient(180deg, #ecfdf5, #f0fdf4);
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--success);
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+/* FOOTER */
+.footer {
+  background: #020617;
+  color: #cbd5f5;
+  text-align: center;
+  padding: 25px;
+  font-size: .85rem;
+  margin-top: 50px;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark .card,
+body.dark .factura,
+body.dark #checkout-form,
+body.dark #paypal-button-container {
+  background: #020617;
+  color: #e5e7eb;
+}
+/* PASOS */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.step {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: .4s;
+}
+
+.step span {
+  font-size: .7rem;
+}
+
+.step.active {
+  background: linear-gradient(135deg, #0d6efd, #22c55e);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* SECCIONES */
+.checkout-step {
+  display: none;
+  animation: fade .6s ease;
+}
+
+.checkout-step.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* BOTON */
+.btn-next {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0d6efd, #22c55e);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-next:hover {
+  transform: translateY(-2px);
+}
+
+/* PAYPAL BLOQUEADO */
+#paypal-button-container.disabled {
+  pointer-events: none;
+  opacity: .4;
+  position: relative;
+}
+
+.bloqueo {
+  text-align: center;
+  font-size: .85rem;
+  color: #64748b;
+}

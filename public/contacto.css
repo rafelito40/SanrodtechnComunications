@@ -1,0 +1,287 @@
+/* ===== GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+.h2 {
+  color: white;
+  }
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(45deg, #001f3f, #003f7f, #0099ff);
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 15px;
+}
+
+.nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #00d8ff;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+/* ===== MAIN ===== */
+.main {
+  margin-top: 40px;
+}
+
+.contacto-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 25px;
+  align-items: start;
+}
+
+.contact-info, .contact-form, .local-image-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.contact-info h2, .contact-form h2 {
+  margin-bottom: 15px;
+  color: #003f7f;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FORM ===== */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: #003f7f;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #005fbf;
+}
+
+/* ===== IMAGEN LOCAL ===== */
+/* ====== SECCIÓN DEL LOCAL ====== */
+.local-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.local-section h2 {
+  color: #003f7f;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.local-image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 950px; /* 🔹 Imagen más grande */
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  animation: pulseGlow 4s infinite ease-in-out; /* 🔹 Resplandor automático */
+  transition: all 0.4s ease-in-out;
+}
+
+.local-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: all 0.6s ease-in-out;
+  transform: scale(1);
+  filter: brightness(95%);
+  animation: imagePop 1.2s ease-out forwards;
+}
+
+/* 🔥 Animación de resplandor */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(0, 255, 200, 0.7);
+  }
+}
+
+/* ✨ Animación de aparición inicial */
+@keyframes imagePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-3deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* 🌟 Efecto al pasar el mouse */
+.local-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(0, 255, 200, 0.6);
+}
+
+.local-image-container:hover .local-image {
+  transform: scale(1.15) rotate(1deg);
+  filter: brightness(115%) contrast(110%) saturate(120%);
+}
+
+/* 💬 Texto flotante animado */
+/* 💬 Texto flotante con efecto de escritura */
+.local-text {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 63, 127, 0.8);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffcc; /* Cursor tipo máquina */
+  width: 0;
+  animation: typing 3s steps(25, end) 1s forwards, blink 0.7s step-end infinite;
+}
+
+/* ✨ Movimiento suave del texto */
+@keyframes floatText {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+}
+/* 🔁 Parpadeo del cursor */
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #00ffcc; }
+}
+/* ✍️ Animación de escritura */
+@keyframes typing {
+  from { width: 0; }
+
+  to { width: 760px; } /* Ajusta el ancho según la longitud del texto */
+
+  to { width: 690px; } /* Ajusta el ancho según la longitud del texto */
+
+}
+
+/* ===== MAPA ===== */
+.mapa {
+  background: #fff;
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.mapa h2 {
+  color: #003f7f;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #001f3f;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+
+}
+
+.whatsapp-float img {
+  opacity: 1;
+  transform: translateY(0);
+}
