@@ -3,12 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Outfit', sans-serif !important;
 }
 
 body {
-  background: #f5f7fa;
-  color: #333;
+  background: radial-gradient(circle at top, #0f172a, #020617 80%);
+  color: #e2e8f0;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
   }
 /* ===== HEADER ===== */
 .header {
-  background: linear-gradient(45deg, #001f3f, #003f7f, #0099ff);
+  background: linear-gradient(45deg, #001f3f, #00e5ff, #0099ff);
   padding: 20px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
@@ -64,7 +64,7 @@ body {
 }
 
 .contact-info, .contact-form, .local-image-container {
-  background: #fff;
+  background: rgba(30, 41, 59, 0.5);
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -72,7 +72,7 @@ body {
 
 .contact-info h2, .contact-form h2 {
   margin-bottom: 15px;
-  color: #003f7f;
+  color: #00e5ff;
 }
 
 .contact-info p {
@@ -108,7 +108,7 @@ button {
   margin-top: 15px;
   padding: 12px 20px;
   border: none;
-  background: #003f7f;
+  background: #00e5ff;
   color: white;
   font-weight: bold;
   border-radius: 8px;
@@ -128,7 +128,7 @@ button:hover {
 }
 
 .local-section h2 {
-  color: #003f7f;
+  color: #00e5ff;
   margin-bottom: 20px;
   font-size: 26px;
 }
@@ -238,7 +238,7 @@ button:hover {
 
 /* ===== MAPA ===== */
 .mapa {
-  background: #fff;
+  background: rgba(30, 41, 59, 0.5);
   margin-top: 40px;
   padding: 25px;
   border-radius: 15px;
@@ -246,7 +246,7 @@ button:hover {
 }
 
 .mapa h2 {
-  color: #003f7f;
+  color: #00e5ff;
   margin-bottom: 15px;
   text-align: center;
 }
