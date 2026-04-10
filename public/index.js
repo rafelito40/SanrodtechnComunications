@@ -13,9 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
       modifier: 1,
       slideShadows: true,
     },
+    speed: 800,
     autoplay: {
-      delay: 3000,
+      delay: 1500,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
     pagination: {
       el: ".swiper-pagination",
