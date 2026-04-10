@@ -1,13 +1,33 @@
-let slides = document.querySelectorAll(".slide");
-let index = 0;
 
-function showSlide() {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[index].classList.add("active");
-    index = (index + 1) % slides.length;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    coverflowEffect: {
+      rotate: 30,
+      stretch: 0,
+      depth: 250,
+      modifier: 1,
+      slideShadows: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+});
 
-setInterval(showSlide, 3000);
 
 // MENU MÓVIL
 const menuToggle = document.getElementById("mobile-menu");

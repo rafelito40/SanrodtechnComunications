@@ -140,84 +140,103 @@ body::before {
   100% {opacity: 1; transform: translateY(0);}
 }
 
-/* 🖼️ SLIDER ACTUALIZADO (compatible con .slider-container) */
-.slider {
+
+/* 🌌 SWIPER SLIDER PREMIUM 3D */
+.hero-swiper-section {
+  width: 100%;
+  padding: 40px 0 60px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(0,229,255,0.03), transparent 60%);
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 380px;
+  height: 420px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   position: relative;
   overflow: hidden;
-  height: 420px;
-  width: 85%;
-  margin: 60px auto;
-  border-radius: 25px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* contenedor que agrupa las slides */
-.slider-container {
-  display: flex;
+.swiper-slide img {
+  display: block;
   width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* cada slide */
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.slide.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-/* imagen más pequeña y centrada */
-.slide img {
-  width: 55%; /* 🔹 tamaño reducido */
-  height: auto;
-  max-height: 75%;
+  height: 60%;
   object-fit: contain;
-  border-radius: 20px;
-  opacity: 0.95;
-  box-shadow: 0 0 30px rgba(0,188,212,0.4);
-  transition: transform 0.8s ease, filter 0.8s ease;
+  padding: 20px;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
 }
 
-.slide img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* texto descriptivo */
-.caption {
-  margin-top: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 12px 20px;
-  border-radius: 10px;
-  color: #fff;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 10px rgba(0,188,212,0.4);
+.glass-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border-top: 3px solid rgba(0, 229, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 15px;
 }
 
-.caption h3 {
+.glass-caption h3 {
   color: #00e5ff;
+  font-size: 1.4rem;
+  font-weight: 800;
   margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(0,229,255,0.4);
 }
 
+.glass-caption p {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
 
+.swiper-button-next, .swiper-button-prev {
+  color: #00e5ff !important;
+  text-shadow: 0 0 15px rgba(0,229,255,0.8);
+  background: rgba(15, 23, 42, 0.6);
+  padding: 30px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  background: rgba(0,229,255,0.2);
+}
+
+.swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 0.4;
+  width: 12px !important;
+  height: 12px !important;
+}
+.swiper-pagination-bullet-active {
+  background: #00e5ff !important;
+  box-shadow: 0 0 10px #00e5ff;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide { width: 280px; height: 350px; }
+  .glass-caption h3 { font-size: 1.1rem; }
+  .glass-caption p { font-size: 0.8rem; }
+}
 
 /* 🎉 SECCIÓN DIVERTIDA */
 .diversion {
