@@ -266,3 +266,65 @@ footer {
 
 /* Fix Logo Visibilidad */
 .logo, .logo-container img.logo { background-color: #ffffff !important; padding: 5px !important; border-radius: 12px !important; border: 2px solid #00e5ff !important; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important; }
+
+/* ============================ */
+/* INCORPORACIONES PREMIUM      */
+/* ============================ */
+
+/* ETIQUETAS PREMIUM */
+.premium-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 5px;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+    background: #0f172a;
+    transition: transform 0.4s;
+}
+.neon-red { color: #ff0055; border: 1px solid #ff0055; box-shadow: 0 0 15px #ff0055; }
+.neon-blue { color: #00e5ff; border: 1px solid #00e5ff; box-shadow: 0 0 15px #00e5ff; }
+
+/* SWIPER MARCAS (SLIDER INFERIOR) */
+.swiperCatalog {
+    width: 100%; padding: 40px 0;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    background: radial-gradient(circle at center, rgba(0,229,255,0.05), transparent 70%);
+}
+.swiperCatalog .swiper-slide {
+    width: 250px !important; height: 150px !important;
+    display: flex; justify-content: center; align-items: center;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 15px; border: 1px solid rgba(0,229,255,0.1);
+    backdrop-filter: blur(5px);
+}
+.swiperCatalog img { width: 80%; height: 80%; object-fit: contain; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.swiperCatalog .swiper-slide:hover img { transform: scale(1.2); filter: drop-shadow(0 20px 20px rgba(0,229,255,0.7)); }
+
+/* WHATSAPP MAGNÉTICO FLOTANTE */
+.whatsapp-float {
+    position: fixed;
+    bottom: 40px; right: 40px;
+    width: 70px; height: 70px;
+    background: #25d366; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 0 25px rgba(37,211,102,0.8);
+    z-index: 1000;
+    animation: pulseWhatsapp 2s infinite; 
+    transition: transform 0.3s;
+}
+.whatsapp-float img { width: 45px; }
+.whatsapp-float:hover { transform: scale(1.15) rotate(5deg); animation: none; }
+
+@keyframes pulseWhatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+    70% { box-shadow: 0 0 0 25px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* FILTRADO: transicion de desvanecimiento suave */
+.product-card { transition: opacity 0.4s ease, transform 0.4s ease; transform-style: preserve-3d; }
