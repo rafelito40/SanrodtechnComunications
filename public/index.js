@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     centeredSlides: true,
     slidesPerView: "auto",
     loop: true,
-    loopedSlides: 10,
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
@@ -16,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: 0.8,
     },
     speed: 1200,
-    autoplay: false,
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -26,13 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".swiper-button-prev",
     },
   });
-
-  // Forzar autoplay manual a prueba de fallos
-  setInterval(() => {
-    if (swiper && !swiper.destroyed) {
-      swiper.slideNext();
-    }
-  }, 3000);
 });
 
 
