@@ -415,3 +415,101 @@ body::before {
 
 /* Fix Logo Visibilidad */
 .logo, .logo-container img.logo { background-color: #ffffff !important; padding: 5px !important; border-radius: 12px !important; border: 2px solid #00e5ff !important; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important; }
+
+/* ================================= */
+/* 🚀 SUPER ELEMENTOS PREMIUM AÑADIDOS */
+
+.marquee-container {
+  width: 100%;
+  background: #00e5ff;
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+  transform: rotate(-1.5deg);
+  margin: 70px 0 50px 0;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #020617;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.marquee-content span { margin: 0 25px; }
+.marquee-content .dot { color: #020617; opacity: 0.6; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.stats-section {
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, rgba(30,41,59,0.3), #0f172a 80%);
+  position: relative;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(0,229,255,0.3);
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  transition: transform 0.4s ease;
+  position: relative;
+}
+
+.stat-card::after {
+  content: ''; position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 4px;
+  background: #00e5ff;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 15px #00e5ff;
+}
+
+.stat-card:hover {
+  transform: translateY(-15px);
+  border-color: #00e5ff;
+  box-shadow: 0 20px 50px rgba(0,229,255,0.2);
+}
+
+.stat-card h3 {
+  display: inline-block;
+  font-size: 4.2rem;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 5px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.stat-card .plus {
+  font-size: 3.5rem;
+  color: #00e5ff;
+  font-weight: 900;
+  margin-left: 5px;
+  vertical-align: top;
+  text-shadow: 0 0 15px rgba(0,229,255,0.8);
+}
+
+.stat-card p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}

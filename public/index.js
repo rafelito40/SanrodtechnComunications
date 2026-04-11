@@ -46,3 +46,40 @@ if (menuToggle) {
         navMenu.classList.toggle("active");
     });
 }
+
+
+
+// 🔢 ANIMACIÓN DE ESTADÍSTICAS INTELIGENTE
+const counters = document.querySelectorAll('.counter');
+const animateCounters = () => {
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const speed = 100; // lower is faster
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+};
+
+let statsStarted = false;
+window.addEventListener('scroll', () => {
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection && !statsStarted) {
+    const sectionPos = statsSection.getBoundingClientRect().top;
+    const screenPos = window.innerHeight;
+    if (sectionPos < screenPos - 100) {
+      animateCounters();
+      statsStarted = true;
+    }
+  }
+});

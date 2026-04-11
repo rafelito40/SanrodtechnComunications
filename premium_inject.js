@@ -5,7 +5,7 @@ let html = fs.readFileSync('public/index.html', 'utf-8');
 
 const premiumFeaturesHtml = `
   <!-- 🌟 CINTA INFINITA (MARQUEE) -->
-  <div class="marquee-container">
+  <div class="marquee-container" data-aos="fade-down">
     <div class="marquee-content">
       <span>🚀 Tecnología de Punta</span><span class="dot">•</span>
       <span>⚡ Conexión Ultra Rápida</span><span class="dot">•</span>
@@ -37,19 +37,19 @@ const premiumFeaturesHtml = `
   </section>
 `;
 
-// Insert after swiper section
-html = html.replace('<!-- SECCIÓN DIVERTIDA Y ACOGEDORA -->', premiumFeaturesHtml + '\n\n  <!-- SECCIÓN DIVERTIDA Y ACOGEDORA -->');
+if(!html.includes('marquee-container')) {
+  html = html.replace('<!-- SECCIÓN DIVERTIDA Y ACOGEDORA -->', premiumFeaturesHtml + '\n\n  <!-- SECCIÓN DIVERTIDA Y ACOGEDORA -->');
 
-// BREAK CACHE: Force loading of new Javascript bypassing browser cache completely
-const cacheBuster = Date.now();
-html = html.replace(/<script src="index\.js(\?v=[0-9]+)?"><\/script>/, '<script src="index.js?v=' + cacheBuster + '"></script>');
-html = html.replace(/<link rel="stylesheet" href="index\.css(\?v=[0-9]+)?" \/>/, '<link rel="stylesheet" href="index.css?v=' + cacheBuster + '" />');
-
-fs.writeFileSync('public/index.html', html);
-
+  const cacheBuster = Date.now();
+  html = html.replace(/<script src="index\.js(\?v=[0-9A-Z]+)?"><\/script>/, '<script src="index.js?v=' + cacheBuster + '"></script>');
+  html = html.replace(/<link rel="stylesheet" href="index\.css(\?v=[0-9A-Z]+)?" \/>/, '<link rel="stylesheet" href="index.css?v=' + cacheBuster + '" />');
+  fs.writeFileSync('public/index.html', html);
+  console.log('HTML modified');
+}
 
 // 2. Modificar CSS
 let css = fs.readFileSync('public/index.css', 'utf-8');
+if(!css.includes('.marquee-container')) {
 css += `
 /* ================================= */
 /* 🚀 SUPER ELEMENTOS PREMIUM AÑADIDOS */
@@ -150,15 +150,14 @@ css += `
 }
 `;
 fs.writeFileSync('public/index.css', css);
-
+console.log('CSS modified');
+}
 
 // 3. Modificar JS
 let js = fs.readFileSync('public/index.js', 'utf-8');
 
-// Forzador robusto para el swiper (Si no habia funcionado el anterior, reasegurarlo)
-js = js.replace(/autoplay:\s*false,/g, 'autoplay: { delay: 1500, disableOnInteraction: false },');
-
-const statsJS = \`
+if(!js.includes('.counter')) {
+const statsJS = `
 // 🔢 ANIMACIÓN DE ESTADÍSTICAS INTELIGENTE
 const counters = document.querySelectorAll('.counter');
 const animateCounters = () => {
@@ -193,8 +192,11 @@ window.addEventListener('scroll', () => {
     }
   }
 });
-\`;
+`;
 js += '\n\n' + statsJS;
 
 fs.writeFileSync('public/index.js', js);
+console.log('JS modified');
+}
+
 console.log('Premium features injected, cache bypassed.');
