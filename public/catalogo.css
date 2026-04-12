@@ -328,3 +328,6 @@ footer {
 
 /* FILTRADO: transicion de desvanecimiento suave */
 .product-card { transition: opacity 0.4s ease, transform 0.4s ease; transform-style: preserve-3d; }
+
+/* INVERSOR BLANCO PARA LOGOS CORPORATIVOS */
+.logo-w { filter: invert(1) brightness(2) drop-shadow(0 0 10px rgba(0,229,255,0.8)) !important; }
