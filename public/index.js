@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: 0.8,
     },
     speed: 1200,
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -28,6 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".swiper-button-prev",
     },
   });
+
+  // FORZAR MOVIMIENTO DEL SLIDER CADA 2.5 SEGUNDOS (A PRUEBA DE FALLOS)
+  setInterval(() => {
+    if (swiper && !swiper.destroyed) {
+      swiper.slideNext(1200, false);
+    }
+  }, 2500);
 });
 
 
