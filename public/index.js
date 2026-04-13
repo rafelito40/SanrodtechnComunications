@@ -81,3 +81,19 @@ window.addEventListener('scroll', () => {
     }
   }
 });
+
+// WIDGET FLOTANTE FINANCIAMIENTO DINÁMICO
+const finaFloat = document.getElementById("finaFloat");
+if (finaFloat) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      finaFloat.classList.add("show");
+    } else {
+      finaFloat.classList.remove("show");
+    }
+  });
+
+  finaFloat.addEventListener("click", () => {
+    window.location.href = "https://wa.me/18296232138?text=Hola,%20me%20interesa%20explorar%20las%20opciones%20de%20Financiamiento%20con%20Cooperativa%20Altagracia.";
+  });
+}
