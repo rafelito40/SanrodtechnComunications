@@ -91,8 +91,13 @@
 
     .hero-logo {
       width: 220px;
+      height: 220px;
+      object-fit: contain;
       margin-bottom: 30px;
-      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(0,0,0,0.1);
     }
 
     .hero h1 {
@@ -516,7 +521,8 @@
         backdrop: 'rgba(0, 0, 0, 0.95)',
         customClass: {
           popup: 'swal-corporate',
-          title: 'swal-title-corp'
+          title: 'swal-title-corp',
+          image: 'swal-logo-corp'
         },
         showClass: { popup: 'animate__animated animate__fadeInUp' }
       });
@@ -525,6 +531,7 @@
       style.innerHTML = `
         .swal-corporate { border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; font-family: 'Outfit', sans-serif; }
         .swal-title-corp { font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.8rem; }
+        .swal-logo-corp { background: rgba(255,255,255,0.95); padding: 15px; border-radius: 50%; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); object-fit: contain; width: 140px !important; height: 140px !important; }
       `;
       document.head.appendChild(style);
       
