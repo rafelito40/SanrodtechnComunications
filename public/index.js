@@ -1,36 +1,40 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 150,
-      modifier: 2,
-      slideShadows: true,
-      scale: 0.8,
-    },
-    speed: 1200,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-
-  // FORZAR MOVIMIENTO DEL SLIDER CADA 2.5 SEGUNDOS (A PRUEBA DE FALLOS)
-  setInterval(() => {
-    if (swiper && !swiper.destroyed) {
-      swiper.slideNext(1200, false);
+  try {
+    const swiperEl = document.querySelector(".mySwiper");
+    if (swiperEl) {
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 150,
+          modifier: 2,
+          slideShadows: true,
+          scale: 0.8,
+        },
+        speed: 1200,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
     }
-  }, 2500);
+  } catch (e) {
+    console.error("No se pudo iniciar Swiper:", e);
+  }
 });
 
 
