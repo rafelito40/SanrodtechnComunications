@@ -1,86 +1,313 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papel e Impresión</title>
-    <link rel="stylesheet" href="papel.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papel e Impresión Corporativa | SANRODTECHN</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary-gold: #d4af37;
+      --secondary-gold: #facc15;
+      --accent-gold: #fef08a;
+      --bg-obsidian: #050505;
+      --bg-card: rgba(20, 20, 22, 0.7);
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-border: rgba(212, 175, 55, 0.15);
+      --glass-shadow: rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--bg-obsidian);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER BACK ================= */
+    .btn-back {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: var(--primary-gold);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    .btn-back:hover {
+      border-color: var(--primary-gold);
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateX(-5px);
+    }
+
+    /* ================= PAGE HEADER ================= */
+    .page-header {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(2,6,23,1) 0%, rgba(5,5,5,1) 100%);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      background: linear-gradient(to right, #d4af37, #fef08a, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ================= CATALOGO GRID ================= */
+    section.productos-grid {
+      padding: 40px 8% 100px;
+      background: var(--bg-obsidian);
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .producto {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .producto::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border: 1px solid var(--primary-gold);
+      border-radius: 8px;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .producto:hover {
+      transform: translateY(-8px);
+      background: rgba(20, 20, 22, 0.9);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    .producto:hover::after {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.5s;
+    }
+
+    .producto:hover img {
+      transform: scale(1.03);
+    }
+
+    .producto h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .producto p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    /* ================= BTN SOLICITAR ================= */
+    .btn-solicitar {
+      margin-top: 20px;
+      background: transparent;
+      color: var(--primary-gold);
+      border: 1px solid var(--primary-gold);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .btn-solicitar:hover {
+      background: var(--primary-gold);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #020202;
+      text-align: center;
+      padding: 40px 20px;
+      color: #475569;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
 <body>
 
-<h1>📄 Papel bond tamaño legal </h1>
+<a href="catalogo_papeleria.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Catálogo</a>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/bond.avif">
-        <h3>Papel A4</h3>
-        <p>Alta blancura</p>
-    </div>
-
-    <div class="producto">
-        <img src="images/productos/sobre.jfif">
-        <h3>Sobres</h3>
-        <p>Varios tamaños</p>
-    </div>
-    <div class="producto">
-        <img src="images/productos/sobre-manila.avif">
-        <h3>Caja de Sobre Manila #7 </h3>
-        <p>Varios tamaños</p>
-    </div>
-    
-    <div class="producto">
-        <img src="images/productos/smp.jpg">
-        <h3>Sobres</h3>
-        <p>Varios tamaños</p>
-    </div>
-</div>
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/papel-bond-legal.jpg">
-        <h3>Papel bond tamaño legal </h3>
-        <p>Alta blancura</p>
-    </div>
-
-    <div class="producto">
-        <img src="images/productos/sobre.jfif">
-        <h3>Sobres</h3>
-        <p>Varios tamaños</p>
-    </div>
-    <div class="producto">
-        <img src="images/productos/sobre.jfif">
-        <h3>Sobres</h3>
-        <p>Varios tamaños</p>
-    </div>
-    <div class="producto">
-        <img src="images/productos/sobre.jfif">
-        <h3>Sobres</h3>
-        <p>Varios tamaños</p>
-    </div>
+<div class="page-header">
+  <h1>Papel e Impresión</h1>
+  <p>Suministros de excelencia para los documentos más importantes de su corporación.</p>
 </div>
 
+<section class="productos-grid">
+  <div class="catalogo">
+      <div class="producto">
+          <img src="images/productos/bond.avif" alt="Papel A4">
+          <h3>Papel A4</h3>
+          <p>Alta blancura y retención de tinta.</p>
+          <button class="btn-solicitar" onclick="cotizar('Papel A4')">Cotizar</button>
+      </div>
 
-<!-- SweetAlert2 Bienvenido -->
+      <div class="producto">
+          <img src="images/productos/papel-bond-legal.jpg" alt="Papel bond tamaño legal">
+          <h3>Papel Bond Legal</h3>
+          <p>Tamaño legal, máxima presentación corporativa.</p>
+          <button class="btn-solicitar" onclick="cotizar('Papel Bond Legal')">Cotizar</button>
+      </div>
+
+      <div class="producto">
+          <img src="images/productos/sobre-manila.avif" alt="Caja de Sobre Manila #7">
+          <h3>Sobre Manila #7</h3>
+          <p>Para resguardo de correspondencia oficial.</p>
+          <button class="btn-solicitar" onclick="cotizar('Sobre Manila #7')">Cotizar</button>
+      </div>
+      
+      <div class="producto">
+          <img src="images/productos/smp.jpg" alt="Sobres Blancos">
+          <h3>Sobres Premium</h3>
+          <p>Ideales para mensajería empresarial.</p>
+          <button class="btn-solicitar" onclick="cotizar('Sobres Premium')">Cotizar</button>
+      </div>
+
+      <!-- Duplicados re-acomodados por si acaso para llenar catálogo -->
+      <div class="producto">
+          <img src="images/productos/sobre.jfif" alt="Sobres Estándar">
+          <h3>Sobres Estándar</h3>
+          <p>Formatos múltiples para oficina.</p>
+          <button class="btn-solicitar" onclick="cotizar('Sobres Estándar')">Cotizar</button>
+      </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SANRODTECHN – Excelencia Corporativa en Cada Detalle
+</footer>
+
+<!-- SweetAlert2 Bienvenido Corporativo (si se entra directo) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+  function cotizar(producto) {
+    const phone = "18296232138";
+    const msg = `Hola SANRODTECHN. Deseo cotizar: ${producto} de su catálogo corporativo.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
-    if (!sessionStorage.getItem('welcomed')) {
+    if (!sessionStorage.getItem('corporate_welcomed')) {
       Swal.fire({
-        title: '¡Qué alegría tenerte aquí! 🚀',
-        html: 'Estás a un paso de llevar la <b>tecnología</b> de tu hogar y tu negocio al máximo nivel con nosotros.<br><br>Explora nuestras soluciones premium y siéntete como en casa.',
-        icon: 'success',
-        iconColor: '#00e5ff',
-        background: 'rgba(15, 23, 42, 0.95)',
-        color: '#e2e8f0',
-        confirmButtonColor: '#00e5ff',
-        confirmButtonText: '<span style="color:#0f172a; font-weight:800;">Adelante, descubrir</span>',
-        backdrop: 'rgba(2, 6, 23, 0.9)',
-        showClass: { popup: 'animate__animated animate__zoomIn' }
+        title: 'Bienvenidos a SANRODTECHN',
+        html: 'Nuestra División Corporativa está lista para elevar la productividad de su empresa con los mejores estándares.<br><br><b>Descubra nuestro catálogo premium.</b>',
+        imageUrl: 'images/productos/logo.png',
+        imageWidth: 150,
+        imageAlt: 'Logo Sanrodtechn',
+        background: '#0a0a0a',
+        color: '#f8fafc',
+        confirmButtonColor: '#d4af37',
+        confirmButtonText: '<span style="color:#000; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Explorar Productos</span>',
+        backdrop: 'rgba(0, 0, 0, 0.95)',
+        customClass: {
+          popup: 'swal-corporate',
+          title: 'swal-title-corp'
+        },
+        showClass: { popup: 'animate__animated animate__fadeInUp' }
       });
-      sessionStorage.setItem('welcomed', 'true');
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .swal-corporate { border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; font-family: 'Outfit', sans-serif; }
+        .swal-title-corp { font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.8rem; }
+      `;
+      document.head.appendChild(style);
+      
+      sessionStorage.setItem('corporate_welcomed', 'true');
     }
   });
 </script>
 </body>
-
 </html>

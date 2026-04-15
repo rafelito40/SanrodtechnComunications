@@ -3,245 +3,383 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo Digital | SANRODTECHN</title>
+  <title>Catálogo Corporativo Premium | SANRODTECHN</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
+    :root {
+      --primary-gold: #d4af37;
+      --secondary-gold: #facc15;
+      --accent-gold: #fef08a;
+      --bg-obsidian: #050505;
+      --bg-card: rgba(20, 20, 22, 0.7);
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-border: rgba(212, 175, 55, 0.15);
+      --glass-shadow: rgba(0, 0, 0, 0.8);
     }
 
-    body{
-      background:#0f172a;
-      color:#fff;
-      overflow-x:hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--bg-obsidian);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* ================= HERO ================= */
-    .hero{
-      height:100vh;
-      background:linear-gradient(135deg,#0ea5e9,#2563eb,#1e40af);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden;
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(2,6,23,0.9), rgba(5,5,5,0.95)), url('images/bg-corporate.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,0.15);
-      animation:float 8s infinite alternate;
+    /* Ambient Gold Blobs */
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .hero::before{
-      width:520px;
-      height:520px;
-      top:-200px;
-      left:-200px;
+    .hero::before {
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: -150px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 60%);
+      animation: float 12s infinite alternate ease-in-out;
     }
 
-    .hero::after{
-      width:360px;
-      height:360px;
-      bottom:-150px;
-      right:-150px;
-      animation-duration:6s;
+    .hero::after {
+      width: 600px;
+      height: 600px;
+      bottom: -200px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.1), transparent 60%);
+      animation: float reverse 10s infinite alternate ease-in-out;
     }
 
-    @keyframes float{
-      from{transform:translateY(0)}
-      to{transform:translateY(40px)}
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
     }
 
-    .hero-content{
-      text-align:center;
-      z-index:2;
-      padding:0 20px;
-      animation:fadeIn 1.3s ease;
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      padding: 0 20px;
+      animation: fadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .hero-logo{
-      width:160px;
-      margin-bottom:35px;
-      animation:logoFade 1.5s ease;
-      filter:drop-shadow(0 15px 35px rgba(0,0,0,.35));
+    .hero-logo {
+      width: 220px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));
     }
 
-    .hero h1{
-      font-size:clamp(2.8rem,6vw,5.2rem);
-      font-weight:700;
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      background: linear-gradient(to right, #d4af37, #fef08a, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .hero p{
-      margin-top:25px;
-      font-size:clamp(1.1rem,2vw,1.6rem);
-      opacity:.95;
-      max-width:820px;
-      margin-inline:auto;
+    .hero p {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      color: #e2e8f0;
+      max-width: 700px;
+      margin-inline: auto;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(40px)}
-      to{opacity:1;transform:translateY(0)}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes logoFade{
-      from{opacity:0;transform:translateY(-25px) scale(.9)}
-      to{opacity:1;transform:translateY(0) scale(1)}
+    /* Scroll Down Arrow */
+    .scroll-down {
+      position: absolute;
+      bottom: 50px;
+      font-size: 2.5rem;
+      color: var(--primary-gold);
+      cursor: pointer;
+      animation: slideDown 2s infinite ease-in-out;
+      z-index: 3;
+      transition: color 0.3s, transform 0.3s;
     }
 
-    /* Flecha */
-    .scroll-down{
-      position:absolute;
-      bottom:70px;
-      font-size:3.5rem;
-      color:#00ffcc;
-      cursor:pointer;
-      animation:bounce 1.5s infinite;
-      text-shadow:0 0 20px rgba(0,255,204,.9);
-      z-index:3;
+    .scroll-down:hover {
+      color: #fff;
+      transform: scale(1.1);
     }
 
-    @keyframes bounce{
-      0%,20%,50%,80%,100%{transform:translateY(0)}
-      40%{transform:translateY(12px)}
-      60%{transform:translateY(6px)}
+    @keyframes slideDown {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(15px); opacity: 1; }
     }
 
     /* ================= SECCIONES ================= */
-    section{
-      padding:90px 8%;
+    section {
+      padding: 120px 8%;
     }
 
-    .section-title{
-      text-align:center;
-      font-size:2.6rem;
-      margin-bottom:60px;
+    .section-title {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: 80px;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: var(--primary-gold);
+      display: block;
+      margin: 20px auto 0;
+      border-radius: 2px;
     }
 
     /* ================= CATALOGO ================= */
-    #marcas{
-      background:#020617;
+    #marcas {
+      background: var(--bg-obsidian);
+      position: relative;
     }
 
-    .catalogo{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:35px;
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .card{
-      background:#020617;
-      border-radius:22px;
-      overflow:hidden;
-      transition:.45s;
-      position:relative;
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      box-shadow: 0 20px 40px var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent,rgba(56,189,248,.25),transparent);
-      opacity:0;
-      transition:.4s;
-        pointer-events:none;
+    /* Gold Inner Reflection */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(212, 175, 55, 0.15), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .card:hover::before{opacity:1}
-
-    .card img{
-      width:100%;
-      height:230px;
-      object-fit:cover;
-      transition:.6s;
+    .card:hover::before {
+      opacity: 1;
     }
 
-    .card:hover img{transform:scale(1.12)}
-
-    .card-content{
-      padding:28px;
+    .card-img-wrapper {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
     }
 
-    .card h3{
-      font-size:1.35rem;
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 15px;
+      transition: transform 0.8s ease, filter 0.5s ease;
+      background: white; /* Mantener contraste para las fotos de papelería */
     }
 
-    .card p{
-      font-size:.95rem;
-      opacity:.85;
-      margin:12px 0 22px;
+    .card:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.05);
     }
 
-    /* BOTÓN */
-    .card a{
-      display:inline-block;
-      padding:12px 26px;
-      background:#38bdf8;
-      color:#020617;
-      font-weight:600;
-      border-radius:30px;
-      text-decoration:none;
-      transition:.3s;
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--glass-border);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 20px rgba(212, 175, 55, 0.1);
     }
 
-    .card a:hover{
-      background:#0ea5e9;
-      transform:translateY(-2px);
+    .card-content {
+      padding: 35px 30px;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card:hover{
-      transform:translateY(-18px) scale(1.02);
-      box-shadow:0 35px 80px rgba(0,0,0,.7);
+    .card h3 {
+      font-size: 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fff;
     }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      flex: 1;
+    }
+
+    /* BOTÓN EXPLORAR CLASE CORPORATIVA */
+    .card a {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--primary-gold);
+      font-weight: 500;
+      border: 1px solid var(--primary-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-gold);
+      z-index: -1;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+
+    .card a:hover {
+      color: #000;
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .card a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .card a::after {
+      content: '\f061';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.9em;
+      transition: transform 0.4s ease;
+    }
+
+    .card a:hover::after {
+      transform: translateX(5px);
+    }
+
+    /* ================= ANIMACIONES SCROLL ================= */
+    .hidden-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .show-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card.hidden-scroll:nth-child(1) { transition-delay: 0.1s; }
+    .card.hidden-scroll:nth-child(2) { transition-delay: 0.2s; }
+    .card.hidden-scroll:nth-child(3) { transition-delay: 0.3s; }
+    .card.hidden-scroll:nth-child(4) { transition-delay: 0.4s; }
 
     /* ================= WHATSAPP ================= */
-    .whatsapp{
-      position:fixed;
-      bottom:25px;
-      right:25px;
-      width:62px;
-      height:62px;
-      background:#25d366;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:32px;
-      color:#fff;
-      box-shadow:0 20px 40px rgba(0,0,0,.45);
-      animation:pulse 1.5s infinite;
-      z-index:999;
+    .whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #fff;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+      animation: pulseWA 2.5s infinite;
+      z-index: 999;
+      transition: transform 0.3s;
     }
 
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}
-      70%{box-shadow:0 0 0 26px rgba(37,211,102,0)}
-      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+    .whatsapp:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    @keyframes pulseWA {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
     /* ================= FOOTER ================= */
-    footer{
-      background:#020617;
-      text-align:center;
-      padding:30px;
-      opacity:.85;
-      font-size:.9rem;
+    footer {
+      background: #020202;
+      text-align: center;
+      padding: 50px 20px;
+      color: #475569;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: 'Poppins', sans-serif;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -249,52 +387,62 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="images/productos/logo.png" alt="SANRODTECHN Logo" class="hero-logo">
-    <h1>Catálogo Digital Premium</h1>
-    <p>Soluciones profesionales en papelería y suministros de oficina</p>
+    <img src="images/productos/logo.png" alt="SANRODTECHN Logo" class="hero-logo" onerror="this.src='https://placehold.co/200x80/222/FFF?text=SANROD'">
+    <h1>Catálogo Corporativo</h1>
+    <p>La máxima expresión de calidad y eficiencia para su negocio.</p>
   </div>
-  <div class="scroll-down" onclick="scrollToMarcas()">⌄</div>
+  <div class="scroll-down" onclick="scrollToMarcas()">
+    <i class="fas fa-chevron-down"></i>
+  </div>
 </section>
 
 <!-- CATALOGO -->
 <section id="marcas">
-  <h2 class="section-title">Catálogo por Categoría</h2>
+  <h2 class="section-title hidden-scroll">Categorías de Excelencia</h2>
 
   <div class="catalogo">
-
-    <div class="card">
-      <img src="images/productos/resma.png">
+    
+    <div class="card hidden-scroll">
+      <div class="card-img-wrapper">
+        <img src="images/productos/resma.png" alt="Papel y Productos de Impresión" onerror="this.src='https://placehold.co/400x300/eee/333?text=Papel'">
+      </div>
       <div class="card-content">
-        <h3>Papel y Productos de Impresión</h3>
-        <p>Resmas, sobres y papel institucional.</p>
-        <a href="papeleria.html">Ver catálogo</a>
+        <h3>Papel e Impresión</h3>
+        <p>Soluciones en resmas, sobres y papelería institucional de calidad inigualable para la documentación de su empresa.</p>
+        <a href="papeleria.html">Explorar</a>
       </div>
     </div>
 
-    <div class="card">
-      <img src="images/productos/Boligrafo.jpg">
+    <div class="card hidden-scroll">
+      <div class="card-img-wrapper">
+        <img src="images/productos/Boligrafo.jpg" alt="Instrumentos de Escritura" onerror="this.src='https://placehold.co/400x300/eee/333?text=Escritura'">
+      </div>
       <div class="card-content">
         <h3>Instrumentos de Escritura</h3>
-        <p>Bolígrafos, marcadores y resaltadores.</p>
-        <a href="escritura.html">Ver catálogo</a>
+        <p>Bolígrafos ejecutivos, marcadores y herramientas de trazado ergonómicas para profesionales exigentes.</p>
+        <a href="escritura.html">Explorar</a>
       </div>
     </div>
 
-    <div class="card">
-      <img src="images/productos/archivo.jfif">
+    <div class="card hidden-scroll">
+      <div class="card-img-wrapper">
+        <img src="images/productos/archivo.jfif" alt="Organización y Archivo" onerror="this.src='https://placehold.co/400x300/eee/333?text=Archivo'">
+      </div>
       <div class="card-content">
         <h3>Organización y Archivo</h3>
-        <p>Carpetas, archivadores y clasificaciones.</p>
-        <a href="organizacion.html">Ver catálogo</a>
+        <p>Carpetas premium, archivadores metálicos y sistemas de clasificación para la máxima eficiencia de su oficina.</p>
+        <a href="organizacion.html">Explorar</a>
       </div>
     </div>
 
-    <div class="card">
-      <img src="images/productos/accesorios.jpg">
+    <div class="card hidden-scroll">
+      <div class="card-img-wrapper">
+        <img src="images/productos/accesorios.jpg" alt="Accesorios y Herramientas" onerror="this.src='https://placehold.co/400x300/eee/333?text=Accesorios'">
+      </div>
       <div class="card-content">
-        <h3>Accesorios y Herramientas</h3>
-        <p>Tijeras, grapadoras y suministros.</p>
-        <a href="accesorios.html">Ver catálogo</a>
+        <h3>Accesorios Generales</h3>
+        <p>Suministros indispensables, desde perforadoras profesionales hasta los consumibles más sofisticados de escritorio.</p>
+        <a href="accesorios.html">Explorar</a>
       </div>
     </div>
 
@@ -302,43 +450,88 @@
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/18296232138" class="whatsapp" target="_blank">
+<a href="https://wa.me/18296232138" class="whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <footer>
-  © 2026 SANRODTECHN – Catálogo Digital Profesional
+  © 2026 SANRODTECHN – Excelencia Corporativa en Cada Detalle
 </footer>
 
 <script>
+  // Soft scroll
   function scrollToMarcas(){
     document.getElementById('marcas').scrollIntoView({behavior:'smooth'});
   }
+
+  // Intersection Observer para anmaciones en scroll
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show-scroll');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const hiddenElements = document.querySelectorAll('.hidden-scroll');
+    hiddenElements.forEach(el => observer.observe(el));
+
+    // Glow Effect in Cards follows Mouse
+    const cards = document.querySelectorAll('.card');
+    document.getElementById('marcas').addEventListener('mousemove', e => {
+      for(const card of cards) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }
+    });
+  });
 </script>
 
-
-<!-- SweetAlert2 Bienvenido -->
+<!-- SweetAlert2 Bienvenido Corporativo -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    if (!sessionStorage.getItem('welcomed')) {
+    if (!sessionStorage.getItem('corporate_welcomed')) {
       Swal.fire({
-        title: '¡Qué alegría tenerte aquí! 🚀',
-        html: 'Estás a un paso de llevar la <b>tecnología</b> de tu hogar y tu negocio al máximo nivel con nosotros.<br><br>Explora nuestras soluciones premium y siéntete como en casa.',
-        icon: 'success',
-        iconColor: '#00e5ff',
-        background: 'rgba(15, 23, 42, 0.95)',
-        color: '#e2e8f0',
-        confirmButtonColor: '#00e5ff',
-        confirmButtonText: '<span style="color:#0f172a; font-weight:800;">Adelante, descubrir</span>',
-        backdrop: 'rgba(2, 6, 23, 0.9)',
-        showClass: { popup: 'animate__animated animate__zoomIn' }
+        title: 'Bienvenidos a SANRODTECHN',
+        html: 'Nuestra División Corporativa está lista para elevar la productividad de su empresa con los mejores estándares.<br><br><b>Descubra nuestro catálogo premium.</b>',
+        imageUrl: 'images/productos/logo.png',
+        imageWidth: 150,
+        imageAlt: 'Logo Sanrodtechn',
+        background: '#0a0a0a',
+        color: '#f8fafc',
+        confirmButtonColor: '#d4af37',
+        confirmButtonText: '<span style="color:#000; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Ingresar al Catálogo</span>',
+        backdrop: 'rgba(0, 0, 0, 0.95)',
+        customClass: {
+          popup: 'swal-corporate',
+          title: 'swal-title-corp'
+        },
+        showClass: { popup: 'animate__animated animate__fadeInUp' }
       });
-      sessionStorage.setItem('welcomed', 'true');
+      // Estilos extra para el swal
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .swal-corporate { border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; font-family: 'Outfit', sans-serif; }
+        .swal-title-corp { font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.8rem; }
+      `;
+      document.head.appendChild(style);
+      
+      sessionStorage.setItem('corporate_welcomed', 'true');
     }
   });
 </script>
+
 </body>
-
 </html>
-
