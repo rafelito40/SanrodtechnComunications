@@ -1,178 +1,419 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrumentos de Escritura | SANRODTECHN</title>
 
-    <title>Instrumentos de Escritura</title>
-    <link rel="stylesheet" href="escritura.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary-gold: #d4af37;
+      --secondary-gold: #facc15;
+      --accent-gold: #fef08a;
+      --bg-obsidian: #050505;
+      --bg-card: rgba(20, 20, 22, 0.7);
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-border: rgba(212, 175, 55, 0.15);
+      --glass-shadow: rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--bg-obsidian);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER BACK ================= */
+    .btn-back {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: var(--primary-gold);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    .btn-back:hover {
+      border-color: var(--primary-gold);
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateX(-5px);
+    }
+
+    /* ================= PAGE HEADER ================= */
+    .page-header {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(2,6,23,1) 0%, rgba(5,5,5,1) 100%);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      background: linear-gradient(to right, #d4af37, #fef08a, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ================= CATALOGO GRID ================= */
+    section.productos-grid {
+      padding: 40px 8% 100px;
+      background: var(--bg-obsidian);
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .producto {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .producto::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border: 1px solid var(--primary-gold);
+      border-radius: 8px;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .producto:hover {
+      transform: translateY(-8px);
+      background: rgba(20, 20, 22, 0.9);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    .producto:hover::after {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.5s;
+    }
+
+    .producto:hover img {
+      transform: scale(1.03);
+    }
+
+    .producto h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .producto p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    /* ================= BTN SOLICITAR ================= */
+    .btn-solicitar {
+      margin-top: 20px;
+      background: transparent;
+      color: var(--primary-gold);
+      border: 1px solid var(--primary-gold);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .btn-solicitar:hover {
+      background: var(--primary-gold);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #020202;
+      text-align: center;
+      padding: 40px 20px;
+      color: #475569;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
 <body>
 
-<h1>✍️ Instrumentos de Escritura</h1>
+<a href="catalogo_papeleria.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Catálogo</a>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/lapicero.jpg">
-        <h3>Bolígrafos</h3>
-        <p>Tinta azul y negra</p>
-    </div>
-
-    <div class="producto">
-        <img src="images/productos/marca.jpg">
-        <h3>Marcadores</h3>
-        <p>Colores vivos</p>
-    </div>
+<div class="page-header">
+  <h1>Instrumentos de Escritura</h1>
+  <p>La esencia de comunicar ideas con herramientas de calidad premium.</p>
 </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/clip.avif">
-        <h3>Caja de clips</h3>
-        <p> grande No.2 50MM Talbot</p>
-    </div>
+<section class="productos-grid">
+  <div class="catalogo">
+      <div class="producto">
+          <img src="images/productos/lapicero.jpg" alt="Bolígrafos">
+          <h3>Bolígrafos</h3>
+          <p>Tinta azul y negra.</p>
+          <button class="btn-solicitar" onclick="cotizar('Bolígrafos')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/Clip_Billetero.avif">
-        <h3>Clip Billetero</h3>
-        <p>Clip Billetero 41mm (1 ½”)  Negro</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/marca.jpg" alt="Marcadores">
+          <h3>Marcadores</h3>
+          <p>Colores vivos.</p>
+          <button class="btn-solicitar" onclick="cotizar('Marcadores')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/aplusamarillo.avif">
-        <h3>Bolígrafos</h3>
-        <p>Aplus Vivilite - Rosado 12/1</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/clip.avif" alt="Caja de clips">
+          <h3>Caja de clips</h3>
+          <p>Grande No.2 50MM Talbot.</p>
+          <button class="btn-solicitar" onclick="cotizar('Caja de Clips Talbot')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/marcadorberolazul.avif">
-        <h3>Marcadores</h3>
-        <p>Marcador Permanente Berol-Azul</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/Clip_Billetero.avif" alt="Clip Billetero">
+          <h3>Clip Billetero</h3>
+          <p>Clip Billetero 41mm (1 ½”) Negro.</p>
+          <button class="btn-solicitar" onclick="cotizar('Clip Billetero 41mm')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/marcador.avif">
-        <h3>Bolígrafos</h3>
-        <p>Marcador de Pizarra Azul</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/aplusamarillo.avif" alt="Bolígrafos Aplus">
+          <h3>Bolígrafos Aplus</h3>
+          <p>Aplus Vivilite - Rosado 12/1.</p>
+          <button class="btn-solicitar" onclick="cotizar('Bolígrafos Aplus Rosado')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/notas.avif">
-        <h3>Notas Adhesivas</h3>
-        <p>(Post-it) 3x3 Naranja Pastel - Stick'n</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/marcadorberolazul.avif" alt="Marcador Berol">
+          <h3>Marcadores</h3>
+          <p>Marcador Permanente Berol-Azul.</p>
+          <button class="btn-solicitar" onclick="cotizar('Marcador Berol Azul')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/banderitastalbot_360x.avif">
-        <h3>Notas Adhesivas</h3>
-        <p>(Post-it) Banderitas, Neón Multicolor, Talbot T-21050</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/marcador.avif" alt="Marcador Pizarra">
+          <h3>Bolígrafos</h3>
+          <p>Marcador de Pizarra Azul.</p>
+          <button class="btn-solicitar" onclick="cotizar('Marcador de Pizarra Azul')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/perforadoraswingline_360x.avif">
-        <h3>Perforadora de 2 Hoyos</h3>
-        <p>Swingline Mod.390 P/25H</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/notas.avif" alt="Notas Adhesivas">
+          <h3>Notas Adhesivas</h3>
+          <p>(Post-it) 3x3 Naranja Pastel - Stick'n.</p>
+          <button class="btn-solicitar" onclick="cotizar('Notas Adhesivas Naranja')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/perforadoracarnetstudmark_1024x1024.avif">
-        <h3>Perforadora Para Carnet </h3>
-        <p>Studmark ST-04531</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/banderitastalbot_360x.avif" alt="Notas Adhesivas Talbot">
+          <h3>Notas Adhesivas</h3>
+          <p>(Post-it) Banderitas, Neón Multicolor, Talbot T-21050.</p>
+          <button class="btn-solicitar" onclick="cotizar('Banderitas Adhesivas Talbot')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/cintas.jfif">
-        <h3>Cinta Adhesiva</h3>
-        <p>de Empaque 2x90 - Worker</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/perforadoraswingline_360x.avif" alt="Perforadora">
+          <h3>Perforadora de 2 Hoyos</h3>
+          <p>Swingline Mod.390 P/25H.</p>
+          <button class="btn-solicitar" onclick="cotizar('Perforadora Swingline 2 Hoyos')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/maskintape3.avif">
-        <h3>Cinta Masking Tape 3/4"x25</h3>
-        <p>Pegafan</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/perforadoracarnetstudmark_1024x1024.avif" alt="Perforadora Carnet">
+          <h3>Perforadora Para Carnet</h3>
+          <p>Studmark ST-04531.</p>
+          <button class="btn-solicitar" onclick="cotizar('Perforadora Carnet Studmark')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/doblecara.avif">
-        <h3>Cinta Doble Cara</h3>
-        <p>3M 1x50 CAT 114</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/cintas.jfif" alt="Cinta de Empaque">
+          <h3>Cinta Adhesiva</h3>
+          <p>de Empaque 2x90 - Worker.</p>
+          <button class="btn-solicitar" onclick="cotizar('Cinta de Empaque Worker')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/cinta-magica.jfif">
-        <h3>Cinta Adhesiva Mágica </h3>
-        <p>3/4″ - Highland</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/maskintape3.avif" alt="Masking Tape">
+          <h3>Cinta Masking Tape 3/4"x25</h3>
+          <p>Pegafan.</p>
+          <button class="btn-solicitar" onclick="cotizar('Masking Tape Pegafan')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/marca.jpg">
-        <h3>Marcadores</h3>
-        <p>Colores vivos</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/doblecara.avif" alt="Doble Cara">
+          <h3>Cinta Doble Cara</h3>
+          <p>3M 1x50 CAT 114.</p>
+          <button class="btn-solicitar" onclick="cotizar('Cinta Doble Cara 3M')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/pizarra.jfif">
-        <h3>Pizarra mágica 48”x72</h3>
-        <p>Marco de Aluminio</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/cinta-magica.jfif" alt="Cinta Mágica">
+          <h3>Cinta Adhesiva Mágica</h3>
+          <p>3/4″ - Highland.</p>
+          <button class="btn-solicitar" onclick="cotizar('Cinta Mágica Highland')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/fomascontinua.jfif">
-        <h3>Caja de papel forma continua</h3>
-        <p>NCR 9½x5½ de 3P</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/pizarra.jfif" alt="Pizarra Mágica">
+          <h3>Pizarra mágica 48”x72"</h3>
+          <p>Marco de Aluminio.</p>
+          <button class="btn-solicitar" onclick="cotizar('Pizarra Mágica Aluminio')">Cotizar</button>
+      </div>
 
-<div class="catalogo">
-    <div class="producto">
-        <img src="images/productos/fomascontinua.jfif">
-        <h3>Caja de papel forma continua NCR</h3>
-        <p>9½x11 de 4P</p>
-    </div>
+      <div class="producto">
+          <img src="images/productos/fomascontinua.jfif" alt="Forma Continua">
+          <h3>Caja de papel forma continua</h3>
+          <p>NCR 9½x5½ de 3P.</p>
+          <button class="btn-solicitar" onclick="cotizar('Forma Continua NCR 9x5 3P')">Cotizar</button>
+      </div>
 
-    <div class="producto">
-        <img src="images/productos/fomascontinua.jfif">
-        <h3>Caja de papel forma continua</h3>
-        <p>9½x5½ de 1P</p>
-    </div>
-</div>
+      <div class="producto">
+          <img src="images/productos/fomascontinua.jfif" alt="Forma Continua">
+          <h3>Caja de papel forma continua NCR</h3>
+          <p>9½x11 de 4P.</p>
+          <button class="btn-solicitar" onclick="cotizar('Forma Continua NCR 9x11 4P')">Cotizar</button>
+      </div>
 
-<!-- SweetAlert2 Bienvenido -->
+      <div class="producto">
+          <img src="images/productos/fomascontinua.jfif" alt="Forma Continua 1P">
+          <h3>Caja de papel forma continua</h3>
+          <p>9½x5½ de 1P.</p>
+          <button class="btn-solicitar" onclick="cotizar('Forma Continua NCR 9x5 1P')">Cotizar</button>
+      </div>
+
+      <div class="producto">
+          <img src="images/productos/marca.jpg" alt="Marcadores extra">
+          <h3>Marcadores</h3>
+          <p>Colores vivos.</p>
+          <button class="btn-solicitar" onclick="cotizar('Marcadores')">Cotizar</button>
+      </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SANRODTECHN – Excelencia Corporativa en Cada Detalle
+</footer>
+
+<!-- SweetAlert2 Bienvenido Corporativo (si se entra directo) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+  function cotizar(producto) {
+    const phone = "18296232138";
+    const msg = `Hola SANRODTECHN. Deseo cotizar: ${producto} de su catálogo corporativo.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
-    if (!sessionStorage.getItem('welcomed')) {
+    if (!sessionStorage.getItem('corporate_welcomed')) {
       Swal.fire({
-        title: '¡Qué alegría tenerte aquí! 🚀',
-        html: 'Estás a un paso de llevar la <b>tecnología</b> de tu hogar y tu negocio al máximo nivel con nosotros.<br><br>Explora nuestras soluciones premium y siéntete como en casa.',
-        icon: 'success',
-        iconColor: '#00e5ff',
-        background: 'rgba(15, 23, 42, 0.95)',
-        color: '#e2e8f0',
-        confirmButtonColor: '#00e5ff',
-        confirmButtonText: '<span style="color:#0f172a; font-weight:800;">Adelante, descubrir</span>',
-        backdrop: 'rgba(2, 6, 23, 0.9)',
-        showClass: { popup: 'animate__animated animate__zoomIn' }
+        title: 'Bienvenidos a SANRODTECHN',
+        html: 'Nuestra División Corporativa está lista para elevar la productividad de su empresa con los mejores estándares.<br><br><b>Descubra nuestro catálogo premium.</b>',
+        imageUrl: 'images/productos/logo.png',
+        imageWidth: 150,
+        imageAlt: 'Logo Sanrodtechn',
+        background: '#0a0a0a',
+        color: '#f8fafc',
+        confirmButtonColor: '#d4af37',
+        confirmButtonText: '<span style="color:#000; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Explorar Productos</span>',
+        backdrop: 'rgba(0, 0, 0, 0.95)',
+        customClass: {
+          popup: 'swal-corporate',
+          title: 'swal-title-corp',
+          image: 'swal-logo-corp'
+        },
+        showClass: { popup: 'animate__animated animate__fadeInUp' }
       });
-      sessionStorage.setItem('welcomed', 'true');
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .swal-corporate { border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; font-family: 'Outfit', sans-serif; }
+        .swal-title-corp { font-family: 'Cinzel', serif; color: #d4af37; font-size: 1.8rem; }
+        .swal-logo-corp { background: rgba(255,255,255,0.95); padding: 15px; border-radius: 50%; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); object-fit: contain; width: 140px !important; height: 140px !important; }
+      `;
+      document.head.appendChild(style);
+      
+      sessionStorage.setItem('corporate_welcomed', 'true');
     }
   });
 </script>
 </body>
-
 </html>
