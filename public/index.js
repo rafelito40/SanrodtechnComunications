@@ -119,30 +119,26 @@ document.addEventListener("DOMContentLoaded", () => {
         likeCountSpan.innerText = '0';
       });
 
-    // 2. Revisar si este usuario ya dió like previamente (en su navegador)
-    if (localStorage.getItem('liked_sanrod')) {
-      likeBtn.classList.add('liked');
-    }
-
+    // 2. Quitamos la restricción de localStorage para que la gente pueda dar varios likes si quiere
+    // (o al menos para que no se bloquee visualmente para siempre)
+    
     // 3. Manejar el click en el botón de Like
     likeBtn.addEventListener('click', () => {
-      if (!localStorage.getItem('liked_sanrod')) {
-        // Marcamos localmente como likeado
-        likeBtn.classList.add('liked');
-        localStorage.setItem('liked_sanrod', 'true');
-        
-        // Actualizamos visualmente al instante
-        const currentClicks = parseInt(likeCountSpan.innerText) || 0;
-        likeCountSpan.innerText = currentClicks + 1;
+      // Marcamos la animación temporalmente
+      likeBtn.classList.add('liked');
+      setTimeout(() => likeBtn.classList.remove('liked'), 300); // pequeña animación rápida
+      
+      // Actualizamos visualmente al instante
+      const currentClicks = parseInt(likeCountSpan.innerText) || 0;
+      likeCountSpan.innerText = currentClicks + 1;
 
-        // Sumamos el like real en la API pública
-        fetch(`https://api.counterapi.dev/v1/sanrod/likes/up?t=${Date.now()}`)
-          .then(r => r.json())
-          .then(data => {
-            likeCountSpan.innerText = data.count; // Ajustar con precisión real
-          })
-          .catch(err => console.error('Error incrementing likes:', err));
-      }
+      // Sumamos el like real en la API
+      fetch(`https://api.counterapi.dev/v1/sanrod/likes/up?t=${Date.now()}`)
+        .then(r => r.json())
+        .then(data => {
+          likeCountSpan.innerText = data.count; // Ajustar con precisión real
+        })
+        .catch(err => console.error('Error incrementing likes:', err));
     });
   }
 });
