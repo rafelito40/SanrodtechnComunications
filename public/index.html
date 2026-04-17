@@ -184,12 +184,56 @@
 
     <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.1);"></div>
 
-    <!-- Sistema de Me Gusta Público -->
+    <!-- Sistema de Me Gusta Público Persistente -->
     <div style="text-align: center;">
       <p style="color: #d4af37; font-family: 'Cinzel', serif; font-weight: 600; margin-bottom: 5px;">¿Te gusta la página?</p>
-      <!-- Usamos LikeBtn (gratuito) para páginas estáticas sin base de datos -->
-      <span class="likebtn-wrapper" data-theme="drop" data-show_dislike_label="false" data-dislike_enabled="false" data-icon_size="25" data-icon_l="hrt2" data-icon_l_c="#ff0055" data-icon_l_c_v="#e5004c" data-counter_color="#ffffff" data-label_color="#d4af37" data-cmp_title="¡Gracias por tu apoyo!" data-identifier="sanrodtechn_home"></span>
-      <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+      
+      <style>
+        .custom-like-btn {
+          background: rgba(15, 23, 42, 0.8);
+          border: 1px solid rgba(212, 175, 55, 0.5);
+          border-radius: 30px;
+          color: #fff;
+          font-family: 'Outfit', sans-serif;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 8px 16px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .custom-like-btn:hover {
+          background: rgba(212, 175, 55, 0.1);
+          border-color: #d4af37;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+        }
+        .custom-like-btn svg {
+          fill: #cbd5e1;
+          transition: fill 0.3s ease, transform 0.3s ease;
+        }
+        .custom-like-btn.liked svg {
+          fill: #ff0055;
+          transform: scale(1.1);
+        }
+        .custom-like-btn.liked {
+          border-color: #ff0055;
+          pointer-events: none;
+        }
+        #custom-like-count {
+          color: #d4af37;
+        }
+      </style>
+      <button id="custom-like-btn" class="custom-like-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span id="custom-like-count">...</span>
+      </button>
+
     </div>
   </section>
 

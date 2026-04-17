@@ -101,3 +101,48 @@ if (finaFloat) {
     window.location.href = "https://wa.me/18296232138?text=Hola,%20me%20interesa%20explorar%20las%20opciones%20de%20Financiamiento%20con%20Cooperativa%20Altagracia.";
   });
 }
+
+// 💖 SISTEMA DE LIKE PERSISTENTE CUSTOMIZADO
+document.addEventListener("DOMContentLoaded", () => {
+  const likeBtn = document.getElementById('custom-like-btn');
+  const likeCountSpan = document.getElementById('custom-like-count');
+  
+  if (likeBtn && likeCountSpan) {
+    // 1. Obtener la cantidad inicial de likes
+    fetch(`https://api.counterapi.dev/v1/sanrod/likes`)
+      .then(r => r.json())
+      .then(data => {
+        likeCountSpan.innerText = data.count || 0;
+      })
+      .catch(err => {
+        console.error('Error fetching likes:', err);
+        likeCountSpan.innerText = '0';
+      });
+
+    // 2. Revisar si este usuario ya dió like previamente (en su navegador)
+    if (localStorage.getItem('liked_sanrod')) {
+      likeBtn.classList.add('liked');
+    }
+
+    // 3. Manejar el click en el botón de Like
+    likeBtn.addEventListener('click', () => {
+      if (!localStorage.getItem('liked_sanrod')) {
+        // Marcamos localmente como likeado
+        likeBtn.classList.add('liked');
+        localStorage.setItem('liked_sanrod', 'true');
+        
+        // Actualizamos visualmente al instante
+        const currentClicks = parseInt(likeCountSpan.innerText) || 0;
+        likeCountSpan.innerText = currentClicks + 1;
+
+        // Sumamos el like real en la API pública
+        fetch(`https://api.counterapi.dev/v1/sanrod/likes/up`)
+          .then(r => r.json())
+          .then(data => {
+            likeCountSpan.innerText = data.count; // Ajustar con precisión real
+          })
+          .catch(err => console.error('Error incrementing likes:', err));
+      }
+    });
+  }
+});
