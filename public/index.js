@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (likeBtn && likeCountSpan) {
     // 1. Obtener la cantidad inicial de likes
-    fetch(`https://api.counterapi.dev/v1/sanrod/likes`)
+    fetch(`https://api.counterapi.dev/v1/sanrod/likes/?t=${Date.now()}`)
       .then(r => r.json())
       .then(data => {
         likeCountSpan.innerText = data.count || 0;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         likeCountSpan.innerText = currentClicks + 1;
 
         // Sumamos el like real en la API pública
-        fetch(`https://api.counterapi.dev/v1/sanrod/likes/up`)
+        fetch(`https://api.counterapi.dev/v1/sanrod/likes/up?t=${Date.now()}`)
           .then(r => r.json())
           .then(data => {
             likeCountSpan.innerText = data.count; // Ajustar con precisión real
