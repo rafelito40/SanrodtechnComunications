@@ -109,10 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (likeBtn && likeCountSpan) {
     // 1. Obtener la cantidad inicial de likes
-    fetch(`https://api.counterapi.dev/v1/sanrod/likes/?t=${Date.now()}`)
+    fetch(`https://abacus.jasoncameron.dev/get/sanrod/likes?t=${Date.now()}`)
       .then(r => r.json())
       .then(data => {
-        likeCountSpan.innerText = data.count || 0;
+        likeCountSpan.innerText = data.value || 0;
       })
       .catch(err => {
         console.error('Error fetching likes:', err);
@@ -151,11 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentClicks = parseInt(likeCountSpan.innerText) || 0;
       likeCountSpan.innerText = currentClicks + 1;
 
-      // Sumamos el like real en la API pública
-      fetch(`https://api.counterapi.dev/v1/sanrod/likes/up?t=${Date.now()}`)
+      // Sumamos el like real en la API pública libre
+      fetch(`https://abacus.jasoncameron.dev/hit/sanrod/likes`)
         .then(r => r.json())
         .then(data => {
-          likeCountSpan.innerText = data.count; // Ajustar con precisión real
+          likeCountSpan.innerText = data.value; // Ajustar con precisión real
         })
         .catch(err => console.error('Error incrementing likes:', err));
     });
