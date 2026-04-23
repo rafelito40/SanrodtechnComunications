@@ -119,20 +119,39 @@ document.addEventListener("DOMContentLoaded", () => {
         likeCountSpan.innerText = '0';
       });
 
-    // 2. Quitamos la restricción de localStorage para que la gente pueda dar varios likes si quiere
-    // (o al menos para que no se bloquee visualmente para siempre)
+    // 2. Comprobar si ya le dio like antes en este dispositivo
+    if (localStorage.getItem('sanrod_liked') === 'true') {
+      likeBtn.classList.add('liked'); // Mantener el corazón rojo permanentemente
+    }
     
     // 3. Manejar el click en el botón de Like
     likeBtn.addEventListener('click', () => {
-      // Marcamos la animación temporalmente
+      // Si ya le dio like, le mostramos un mensaje bonito de agradecimiento y evitamos el spam
+      if (localStorage.getItem('sanrod_liked') === 'true') {
+        if (typeof Swal !== 'undefined') {
+          Swal.fire({
+            title: '¡Gracias por tu apoyo! 💖',
+            text: 'Ya has valorado nuestra página. Nos alegra mucho que te guste.',
+            icon: 'success',
+            iconColor: '#ff0055',
+            background: 'rgba(15, 23, 42, 0.95)',
+            color: '#e2e8f0',
+            confirmButtonColor: '#00e5ff',
+            confirmButtonText: 'Cerrar'
+          });
+        }
+        return; // Salimos sin sumar otro like
+      }
+
+      // Marcamos el estado en el dispositivo
+      localStorage.setItem('sanrod_liked', 'true');
       likeBtn.classList.add('liked');
-      setTimeout(() => likeBtn.classList.remove('liked'), 300); // pequeña animación rápida
       
-      // Actualizamos visualmente al instante
+      // Actualizamos visualmente al instante el contador
       const currentClicks = parseInt(likeCountSpan.innerText) || 0;
       likeCountSpan.innerText = currentClicks + 1;
 
-      // Sumamos el like real en la API
+      // Sumamos el like real en la API pública
       fetch(`https://api.counterapi.dev/v1/sanrod/likes/up?t=${Date.now()}`)
         .then(r => r.json())
         .then(data => {
