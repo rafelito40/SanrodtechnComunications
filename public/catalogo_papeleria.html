@@ -374,6 +374,79 @@
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
+    /* ================= BOTÓN MÁGICO VOLVER ================= */
+    .magic-back-btn-container {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      z-index: 999;
+      animation: floatMagic 4s ease-in-out infinite;
+    }
+
+    .magic-back-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(45deg, #d4af37, #fef08a, #d4af37);
+      background-size: 200% 200%;
+      color: #050505;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: gradientShift 3s ease infinite;
+    }
+
+    .magic-back-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transform: skewX(-20deg);
+      animation: magicShine 4s infinite;
+    }
+
+    .magic-back-btn i {
+      font-size: 1.3rem;
+      animation: magicSparkle 2s infinite;
+    }
+
+    .magic-back-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.7), 0 0 20px rgba(254, 240, 138, 0.5);
+      color: #000;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatMagic {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes magicSparkle {
+      0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+      50% { opacity: 0.8; transform: scale(1.2); filter: drop-shadow(0 0 5px rgba(255,255,255,0.8)); }
+    }
+
+    @keyframes magicShine {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
+    }
+
     /* ================= FOOTER ================= */
     footer {
       background: #020202;
@@ -458,6 +531,14 @@
 <a href="https://wa.me/18296232138" class="whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- BOTÓN MÁGICO VOLVER -->
+<div class="magic-back-btn-container">
+  <a href="index.html" class="magic-back-btn">
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <span>Inicio</span>
+  </a>
+</div>
 
 <footer>
   © 2026 SANRODTECHN – Excelencia Corporativa en Cada Detalle
